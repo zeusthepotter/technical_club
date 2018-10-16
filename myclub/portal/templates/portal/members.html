@@ -1,0 +1,45 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+{% if request.user.member.pending_status == True %}
+
+
+Your account has not been authenticated yet!
+
+
+
+
+
+
+{% else %}
+
+
+
+<h2> Members of Technical Club RECK</h2>
+<table>
+{% for m in members %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+
+        <td>
+            <!-- {{ m.roll }} -->
+            {{ m.name }}
+        </td>
+        
+        
+        <td>
+        
+            {% if m.profile_picture %}
+            <img src="{{ m.profile_picture.url }}" width="150px" height="150px">
+         {% endif %}
+    
+        </td>
+
+    </tr>
+{% endfor %}
+</table>    
+
+{% endif %}
+
+{% endblock %}

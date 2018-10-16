@@ -1,0 +1,30 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+
+{% if request.user.member.pending_status == True %}
+
+
+Your account has not been authenticated yet!
+
+
+
+
+
+
+{% else %}
+
+
+{% for p in posts %}
+    {{ p.title }}
+    {{ p.text }}
+    <hr>
+{% endfor %}
+
+    
+{% endif %}
+
+
+
+{% endblock %}

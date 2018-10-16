@@ -1,0 +1,38 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+
+{% if request.user.member.pending_status == True %}
+
+
+Your account has not been authenticated yet!
+
+
+
+
+
+
+{% else %}
+
+<table align="center">
+        <caption><h3>Activity</h3></caption>
+    
+    <tr>
+        <td><b>Author</b></td>
+        <td><b>Post </b></td>
+        
+    </tr>
+    {% for p in posts %}
+        <tr>
+            <td>{{ p.author.member.name }}</td>
+            <td>{{ p.text }} </td>
+            
+        </tr>
+    {% endfor %}
+    </table>    
+
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+{% if request.user.is_superuser %}
+
+<form action="{% url "authenticate_pending_users" %}" method="post">
+    {% csrf_token %}
+        
+        <br>Account Authentication.<br><br>
+        <table align="center">
+        {% for p in P %}
+        <tr>
+            <td><label for="choice{{ forloop.counter }}">{{ forloop.counter }}.</label></td>
+            <td><label for="choice{{ forloop.counter }}">{{ p.roll }}</label></td>
+            <td><label for="choice{{ forloop.counter }}">{{ p.name }}</label></td>
+            <td><label for="choice{{ forloop.counter }}"><img src="{{ p.profile_picture.url }}" width="150px" height="150px"></label></td>
+            <td><input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ p.pk }}"></td>
+            
+        </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="4">
+       <input type="submit" class="button" value="Authenticate" /> 
+             <input type="reset" class="button" value="Reset" />
+        </td>
+    </tr>
+     </table>   
+    </form>
+
+
+    {% endif %}
+
+
+
+{% endblock %}
