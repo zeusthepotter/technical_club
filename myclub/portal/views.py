@@ -52,7 +52,7 @@ def view_my_posts(request):
 
 @login_required
 def view_members(request):
-    members = Member.objects.all()
+    members = Member.objects.filter(pending_status=False)
     return render(request, 'portal/members.html', {'user':request.user ,'members':members })
 
 @login_required
@@ -66,10 +66,13 @@ def register_user(request):
     if request.method == "POST":
         form = UserForm(request.POST, request.FILES)
         if form.is_valid():
-            #Pending_User.objects.create(roll = form.cleaned_data['roll'], password = form.cleaned_data['password'], email = form.cleaned_data['email'], contact_no = form.cleaned_data['contact_no'], branch = form.cleaned_data['branch'], year = form.cleaned_data['year'], profile_picture=request.FILES['profile_picture'], role = form.cleaned_data['role'], team = form.cleaned_data['team'])
-            # redirect, or however you want to get to the main view
             
-            p = form.save()
+            user = User.objects.create_user(form.cleaned_data['roll'], form.cleaned_data['email'],form.cleaned_data['password'])
+            
+            user.save()
+            p = form.save(commit=False)
+            p.user = user
+            p.save()
             
             return HttpResponseRedirect('/portal/members') 
 
