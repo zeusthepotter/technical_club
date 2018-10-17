@@ -30,12 +30,10 @@ Your account has not been authenticated yet!
         
         <td>
         
-            {% if m.profile_picture %}
             <a href="/portal/profile/{{ m.roll }}/">
-            <img src="{{ m.profile_picture.url }}" width="150px" height="150px">
+            <img src="{{ m.image_url }}" width="150px" height="150px">
             </a>
-         {% endif %}
-    
+         
         </td>
         <td>{{ m.team }}</td>
         <td>{{ m.branch }}</td>

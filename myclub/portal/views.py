@@ -79,6 +79,7 @@ def register_user(request):
             user.save()
             p = form.save(commit=False)
             p.user = user
+            p.password=''
             p.save()
             
             return HttpResponseRedirect('/portal/reg_successful') 

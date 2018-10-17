@@ -23,7 +23,7 @@ class Member(models.Model):
         if self.profile_picture:
             return self.profile_picture.url
         else:
-            return "\portal\static\portal\robot.jpg"
+            return "/static/portal/robot.jpg"
 
 
     def __str__(self):
