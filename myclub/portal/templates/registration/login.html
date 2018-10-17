@@ -28,7 +28,8 @@
       
       
   	<div class="loginbox">
-  	<h2>Log In</h2>
+        <h2>Log In</h2>
+        <img src="{% static "portal/robot.jpg" %}" height="180" width = "250" style="float:right">
   	<form method="post" action="{% url 'login' %}">
         {% csrf_token %}
 
