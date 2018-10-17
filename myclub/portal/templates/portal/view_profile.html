@@ -5,25 +5,7 @@
 {% endblock %}
 {% block content %}
 
-{% if request.user.is_superuser %}
 
-
-<h3> Welcome, Superuser! </h3>
-
-
-
-
-{% elif request.user.member.pending_status == True %}
-
-
-Your account has not been authenticated yet!
-
-
-
-
-
-
-{% else %}
 
 {% if member.profile_picture %}
     <img src="{{ member.profile_picture.url }}" width="150px" height="150px">
@@ -38,6 +20,6 @@ Your account has not been authenticated yet!
 <p>{{ member.team }}</p>
 <p>{{ member.role }}</p>
 
-{% endif %}
+
 
 {% endblock %}

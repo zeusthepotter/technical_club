@@ -81,11 +81,20 @@ def register_user(request):
             p.user = user
             p.save()
             
-            return HttpResponseRedirect('/portal/members') 
+            return HttpResponseRedirect('/portal/reg_successful') 
 
         
     form = UserForm() 
     return render(request, 'portal/register_user.html', {'form': form})
+
+
+
+def reg_successful(request):
+        
+
+    return render(request, 'portal/reg_successful.html' )
+
+
 
 @login_required    
 def authenticate_pending_users(request):
