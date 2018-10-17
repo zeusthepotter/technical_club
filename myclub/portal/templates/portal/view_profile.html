@@ -1,0 +1,43 @@
+{% extends 'portal/base.html' %}
+{% block heading %}
+
+
+{% endblock %}
+{% block content %}
+
+{% if request.user.is_superuser %}
+
+
+<h3> Welcome, Superuser! </h3>
+
+
+
+
+{% elif request.user.member.pending_status == True %}
+
+
+Your account has not been authenticated yet!
+
+
+
+
+
+
+{% else %}
+
+{% if member.profile_picture %}
+    <img src="{{ member.profile_picture.url }}" width="150px" height="150px">
+{% endif %}
+
+<p>{{ member.name }}</p>
+<p>{{ member.roll }}</p>
+<p>{{ member.contact_no }}</p>
+<p>{{ member.email }}</p>
+<p>{{ member.branch }}</p>
+<p>{{ member.year }}</p>
+<p>{{ member.team }}</p>
+<p>{{ member.role }}</p>
+
+{% endif %}
+
+{% endblock %}

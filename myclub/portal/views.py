@@ -31,6 +31,13 @@ def profile(request):
 
 
 @login_required
+def view_profile(request,pk):
+        
+    member = get_object_or_404(Member, pk=pk)
+    return render(request, 'portal/view_profile.html', context = {'member': member } )
+
+
+@login_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
