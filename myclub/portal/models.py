@@ -17,6 +17,15 @@ class Member(models.Model):
     role = models.CharField(max_length=30, null = True,blank=True)
     team = models.CharField(max_length=30, null = True,blank=True)
     pending_status = models.BooleanField(default=True)
+
+    @property
+    def image_url(self):
+        if self.profile_picture:
+            return self.profile_picture.url
+        else:
+            return "\portal\static\portal\robot.jpg"
+
+
     def __str__(self):
         return self.name + ' ' + str(self.roll)
 

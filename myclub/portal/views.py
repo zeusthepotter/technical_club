@@ -83,8 +83,12 @@ def register_user(request):
             
             return HttpResponseRedirect('/portal/reg_successful') 
 
+    else:
+
+        form = UserForm()
         
-    form = UserForm() 
+        
+    
     return render(request, 'portal/register_user.html', {'form': form})
 
 
