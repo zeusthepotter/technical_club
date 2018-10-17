@@ -14,7 +14,10 @@
             <td><label for="choice{{ forloop.counter }}">{{ forloop.counter }}.</label></td>
             <td><label for="choice{{ forloop.counter }}">{{ p.roll }}</label></td>
             <td><label for="choice{{ forloop.counter }}">{{ p.name }}</label></td>
-            <td><label for="choice{{ forloop.counter }}"><img src="{{ p.profile_picture.url }}" width="150px" height="150px"></label></td>
+            <td><label for="choice{{ forloop.counter }}">{% if member.profile_picture %}
+                <img src="{{ p.profile_picture.url }}" width="150px" height="150px">
+                 {% endif %} </label>
+            </td>
             <td><input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ p.pk }}"></td>
             
         </tr>
