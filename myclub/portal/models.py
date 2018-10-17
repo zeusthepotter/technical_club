@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class Member(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    roll = models.IntegerField(default=0,primary_key=True)
+    roll = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=30)
     password = models.CharField(max_length=30,null = True,blank=True)
     contact_no = models.CharField(max_length=10)
