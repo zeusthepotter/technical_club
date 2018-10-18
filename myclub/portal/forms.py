@@ -28,3 +28,9 @@ class UserForm(forms.ModelForm):
             raise forms.ValidationError(
                 "Password does not match the confirm password!"
             )
+
+        image = cleaned_data.get("profile_picture")
+        if not image:
+            raise forms.ValidationError(
+                "Please upload your profile picture!"
+            )

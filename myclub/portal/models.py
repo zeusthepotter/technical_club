@@ -12,7 +12,7 @@ class Member(models.Model):
     contact_no = models.CharField(max_length=10)
     email=models.EmailField(max_length=70)
     branch = models.CharField(max_length=30, choices = ( ('cse','CSE'), ('civil','Civil'), ('el','Electronics'), ('ee','Electrical')  )    ,null = True,blank=True)
-    year = models.CharField(max_length=30, choices = ( (1,'First Year'), (2,'Second Year'), (3,'Third Year'), (4,'Fourth Year')  ) ,null = True,blank=True)
+    year = models.CharField(max_length=30, choices = ( ('1','First Year'), ('2','Second Year'), ('3','Third Year'), ('4','Fourth Year')  ) ,null = True,blank=True)
     profile_picture = models.ImageField(blank=True, null=True)
     role = models.CharField(max_length=30, choices = ( ('vol','Volunteer'), ('co','Coordinator') ) ,null = True,blank=True)
     team = models.CharField(max_length=30, choices = ( ('tech','Technical Team'), ('doc','Documentation Team'), ('des','Design Team'), ('spo','Sponsorship Team')  ) ,null = True,blank=True)
