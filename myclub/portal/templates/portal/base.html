@@ -9,11 +9,8 @@
     <ul>
       <li><a href="/accounts/login"> Home</a></li>
       <li><a href="/portal/register_user"> Register </a></li>
-            {% if request.user.is_authenticated %}
-            
-            {% else %}
-            
-            
+           {% if request.user.is_superuser %}
+           <li><a href="/portal/authenticate_pending_users/">Authenticate</a></li>
             {% endif %}
             
             <li><a href="/admin"> Admin </a></li>

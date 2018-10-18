@@ -1,0 +1,1 @@
+cd venv/Scripts && activate.bat && cd ../../myclub && py manage.py runserver && cmd /k

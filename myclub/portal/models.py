@@ -11,11 +11,11 @@ class Member(models.Model):
     password = models.CharField(max_length=30,null = True,blank=True)
     contact_no = models.CharField(max_length=10)
     email=models.EmailField(max_length=70)
-    branch = models.CharField(max_length=30,null = True,blank=True)
-    year = models.CharField(max_length=30, null = True,blank=True)
+    branch = models.CharField(max_length=30, choices = ( ('cse','CSE'), ('civil','Civil'), ('el','Electronics'), ('ee','Electrical')  )    ,null = True,blank=True)
+    year = models.CharField(max_length=30, choices = ( (1,'First Year'), (2,'Second Year'), (3,'Third Year'), (4,'Fourth Year')  ) ,null = True,blank=True)
     profile_picture = models.ImageField(blank=True, null=True)
-    role = models.CharField(max_length=30, null = True,blank=True)
-    team = models.CharField(max_length=30, null = True,blank=True)
+    role = models.CharField(max_length=30, choices = ( ('vol','Volunteer'), ('co','Coordinator') ) ,null = True,blank=True)
+    team = models.CharField(max_length=30, choices = ( ('tech','Technical Team'), ('doc','Documentation Team'), ('des','Design Team'), ('spo','Sponsorship Team')  ) ,null = True,blank=True)
     pending_status = models.BooleanField(default=True)
 
     @property
@@ -44,3 +44,11 @@ class Post(models.Model):
         return self.title
 
 
+class Project(models.Model):
+    worker = models.ManyToManyField(User)
+    title =  models.CharField(max_length=100)
+    description =  models.CharField(max_length=500)
+    deadline = models.DateTimeField()
+
+    def __str__(self):
+        return self.title
