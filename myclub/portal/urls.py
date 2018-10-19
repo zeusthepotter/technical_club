@@ -13,4 +13,5 @@ urlpatterns = [
     path('register_user/', views.register_user,name = 'register_user'),
     path('authenticate_pending_users/', views.authenticate_pending_users,name = 'authenticate_pending_users'),
     path('reg_successful/', views.reg_successful,name = 'reg_successful'),
+    path('projects/', views.view_projects,name = 'view_projects'),
 ]

@@ -11,11 +11,11 @@ class Member(models.Model):
     password = models.CharField(max_length=30,null = True,blank=True)
     contact_no = models.CharField(max_length=10)
     email=models.EmailField(max_length=70)
-    branch = models.CharField(max_length=30, choices = ( ('cse','CSE'), ('civil','Civil'), ('el','Electronics'), ('ee','Electrical')  )    ,null = True,blank=True)
-    year = models.CharField(max_length=30, choices = ( ('1','First Year'), ('2','Second Year'), ('3','Third Year'), ('4','Fourth Year')  ) ,null = True,blank=True)
+    branch = models.CharField(max_length=30, choices = ( ('CSE','CSE'), ('Civil','Civil'), ('Electronics','Electronics'), ('Electrical','Electrical')  )    ,null = True,blank=True)
+    year = models.CharField(max_length=30, choices = ( ('First Year','First Year'), ('Second Year','Second Year'), ('Third Year','Third Year'), ('Fourth Year','Fourth Year')  ) ,null = True,blank=True)
     profile_picture = models.ImageField(blank=True, null=True)
-    role = models.CharField(max_length=30, choices = ( ('vol','Volunteer'), ('co','Coordinator') ) ,null = True,blank=True)
-    team = models.CharField(max_length=30, choices = ( ('tech','Technical Team'), ('doc','Documentation Team'), ('des','Design Team'), ('spo','Sponsorship Team')  ) ,null = True,blank=True)
+    role = models.CharField(max_length=30, choices = ( ('Volunteer','Volunteer'), ('Coordinator','Coordinator') ) ,null = True,blank=True)
+    team = models.CharField(max_length=30, choices = ( ('Technical Team','Technical Team'), ('Documentation Team','Documentation Team'), ('Design Team','Design Team'), ('Sponsorship Team','Sponsorship Team')  ) ,null = True,blank=True)
     pending_status = models.BooleanField(default=True)
 
     @property

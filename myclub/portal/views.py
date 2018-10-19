@@ -69,6 +69,13 @@ def view_activity(request):
 
 
 
+@login_required
+def view_projects(request):
+    p = Project.objects.order_by("deadline")
+    return render(request, 'portal/projects.html', {'projects':p})
+
+
+
 def register_user(request):
     if request.method == "POST":
         form = UserForm(request.POST, request.FILES)
