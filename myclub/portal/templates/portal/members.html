@@ -18,22 +18,25 @@ Your account has not been authenticated yet!
 
 <h2> Members of Technical Club RECK</h2>
 <table>
+        
+
 {% for m in members %}
     <tr>
         <td>{{ forloop.counter }}</td>
 
-        <td>
-            <!-- {{ m.roll }} -->
-            <a href="/portal/profile/{{ m.roll }}/"> {{ m.name }} </a>
-        </td>
+        
         
         
         <td>
         
             <a href="/portal/profile/{{ m.roll }}/">
-            <img src="{{ m.image_url }}" width="150px" height="150px">
+            <img src="{{ m.image_url }}" width="150px" height="100px">
             </a>
          
+        </td>
+        <td>
+            
+                <a href="/portal/profile/{{ m.roll }}/"> {{ m.name }} </a>
         </td>
         <td>{{ m.team }}</td>
         <td>{{ m.branch }}</td>
@@ -43,5 +46,7 @@ Your account has not been authenticated yet!
 </table>    
 
 {% endif %}
+{% load static %}
+<link href="{% static "portal/minimal-table.css" %}" rel="stylesheet" type="text/css">
 
 {% endblock %}
