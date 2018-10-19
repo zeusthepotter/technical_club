@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 from django.contrib.auth.models import User
-from .forms import PostForm, UserForm
+from .forms import PostForm, UserForm, ProjectForm
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
@@ -28,6 +28,19 @@ def profile(request):
         form = PostForm()
     
     return render(request, 'portal/profile.html', context = {'member': request.user.member, 'form':form } )
+
+
+def create_project(request):
+    if request.method == "POST":
+            form = ProjectForm(request.POST)
+            if form.is_valid():
+                project = form.save(commit=False)
+                project.save()
+                return redirect('profile')
+    else:
+        form = ProjectForm()
+        
+    return render(request, 'portal/create_project.html', context = {'member': request.user.member, 'form':form } )
 
 
 @login_required

@@ -1,12 +1,20 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Post, Member
+from .models import Post, Member, Project
 
 class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
         fields = ('title', 'text',)
+
+
+class ProjectForm(forms.ModelForm):
+    deadline=forms.DateTimeField(widget=forms.DateTimeInput())
+
+    class Meta:
+        model = Project
+        fields = ('title', 'description','worker','deadline')
 
 
 class UserForm(forms.ModelForm):

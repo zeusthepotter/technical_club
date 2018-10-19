@@ -25,7 +25,7 @@ SECRET_KEY = '9_3rzn5zk0)1xnnb3snde)x%x2a$j8_th$f%0&2u(6wy#9@lk0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['zeusthepotter.pythonanywhere.com']
+ALLOWED_HOSTS = ['zeusthepotter.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition

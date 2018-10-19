@@ -48,7 +48,7 @@ class Project(models.Model):
     worker = models.ManyToManyField(User)
     title =  models.CharField(max_length=100)
     description =  models.CharField(max_length=500)
-    deadline = models.DateTimeField()
+    deadline = models.DateField()
 
     def __str__(self):
         return self.title
