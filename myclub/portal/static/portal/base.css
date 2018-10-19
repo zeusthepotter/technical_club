@@ -99,7 +99,7 @@ a { color: inherit; text-decoration: none; }
 .tutorial ul li:hover ul li:hover {
   background-color: #e0e0e0;
 }
-.tutorial ul li:hover ul li:hover span {
+.tutorial ul li a:hover ul li:hover span {
   background-color: #ee204e;
 } 
 
