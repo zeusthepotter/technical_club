@@ -10,11 +10,15 @@ class PostForm(forms.ModelForm):
 
 
 class ProjectForm(forms.ModelForm):
-    deadline=forms.DateTimeField(widget=forms.DateTimeInput())
-
+   
     class Meta:
         model = Project
         fields = ('title', 'description','worker','deadline')
+
+        labels = {
+            'worker': 'Members'
+        }
+        
 
 
 class UserForm(forms.ModelForm):

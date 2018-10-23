@@ -13,9 +13,7 @@ def index(request):
 
 @login_required
 def profile(request):
-    # roll = Member.objects.get(name=n).roll
-    # s='lolol'+ n + str(roll)
-    # return HttpResponse(s)
+    
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
@@ -34,8 +32,8 @@ def create_project(request):
     if request.method == "POST":
             form = ProjectForm(request.POST)
             if form.is_valid():
-                project = form.save(commit=False)
-                project.save()
+                project = form.save()
+                
                 return redirect('profile')
     else:
         form = ProjectForm()
@@ -70,6 +68,14 @@ def view_my_posts(request):
     posts= Post.objects.filter(author=request.user)
     return render(request, 'portal/my_posts.html', {'user':request.user ,'posts':posts })
 
+
+@login_required
+def view_red_zone(request):
+    m= Post.objects.filter(author=request.user)
+    return render(request, 'portal/my_posts.html', {'user':request.user ,'posts':posts })
+
+
+
 @login_required
 def view_members(request):
     members = Member.objects.filter(pending_status=False)
@@ -95,7 +101,7 @@ def register_user(request):
         if form.is_valid():
             
             user = User.objects.create_user(form.cleaned_data['roll'], form.cleaned_data['email'],form.cleaned_data['password'])
-            
+            user.pending_status=False
             user.save()
             p = form.save(commit=False)
             p.user = user
