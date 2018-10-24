@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .forms import PostForm, UserForm, ProjectForm
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from datetime import datetime
 
 
 
@@ -71,8 +72,8 @@ def view_my_posts(request):
 
 @login_required
 def view_red_zone(request):
-    m= Post.objects.filter(author=request.user)
-    return render(request, 'portal/my_posts.html', {'user':request.user ,'posts':posts })
+    u= User.objects.all().filter(project__deadline__lte=datetime.now().date())
+    return render(request, 'portal/red_zone.html', {'user':request.user ,'red_users':u })
 
 
 

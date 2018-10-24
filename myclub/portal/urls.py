@@ -15,4 +15,5 @@ urlpatterns = [
     path('reg_successful/', views.reg_successful,name = 'reg_successful'),
     path('projects/', views.view_projects,name = 'view_projects'),
     path('create_project/', views.create_project,name = 'create_project'),
+    path('red_zone/', views.view_red_zone,name = 'red_zone'),
 ]

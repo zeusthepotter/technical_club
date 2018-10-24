@@ -1,0 +1,55 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+
+{% if request.user.member.pending_status == True %}
+
+
+Your account has not been authenticated yet!
+
+
+
+
+
+
+{% else %}
+
+Red Zoned Users
+
+<table>
+        
+
+    {% for u in red_users %}
+        
+
+        <tr>
+            <td>{{ forloop.counter }}</td>
+    
+            
+            
+            
+            <td>
+            
+                <a href="/portal/profile/{{ u.member.roll }}/">
+                <img src="{{ u.member.image_url }}" width="150px" height="100px">
+                </a>
+             
+            </td>
+            <td>
+                
+                    <a href="/portal/profile/{{ u.member.roll }}/"> {{ u.member.name }} </a>
+            </td>
+            <td>{{ u.member.team }}</td>
+            <td>{{ u.member.branch }}</td>
+    
+        </tr>
+    {% endfor %}
+    </table>    
+    
+    {% endif %}
+    {% load static %}
+    <link href="{% static "portal/minimal-table.css" %}" rel="stylesheet" type="text/css">
+    
+
+{% endblock %}
