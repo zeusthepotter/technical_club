@@ -2,11 +2,60 @@
 
 {% block content %}
 
-<form method="post" action="" enctype='multipart/form-data'>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Create new user account" />
-</form>
 
+	    <form method="post" action="" enctype='multipart/form-data'>
+        {% csrf_token %}
+
+        <h2>&nbsp &nbsp &nbsp Registration Form</h2><br>
+       <div class="row" style="overflow:hidden;">
+ 	<div class="col" style="background:white;color:black;padding-left:100px ;float: left; ">
+    <p>Name</p>
+            {{ form.name }}
+  		 <br><br>
+  		<p>Roll No.</p>
+            {{ form.roll }}
+  		 <br><br>
+
+            <p>Email</p>
+            {{ form.email }}
+  		 <br><br>
+             <p>Branch</p>
+            {{ form.branch }}
+  		 <br><br>
+             <p>Year</p>
+            {{ form.year }}
+  		 <br><br>
+             <p>Contact No</p>
+            {{ form.contact_no }}
+            <br><br></div>
+	<div class="col" style="background:white;color:black;float: left;padding-left:100px ">
+             <p>Role</p>
+            {{ form.role }}
+  		 <br><br>
+             <p>Team</p>
+            {{ form.team }}
+  		 <br><br>
+             <p>Profile Picture</p>
+            {{ form.profile_picture }}
+  		 <br><br>
+            <p>Password</p>
+            {{ form.password }}
+  		 <br><br>
+            <p>Confirm Password.</p>
+            {{ form.confirm_password }}
+  		 <br><br><br>
+			   	    <input type="submit" class="btn" style="background:darkblue;color:white;border-radius:20px;width:170px;height:50px;" value="Create Account" />
+  	    <br>
+		<br>
+		<a class="link" href="{% url 'login' %}"> Already Registered? Login</a>
+	</div>
+
+    <br>
+        </div>
+		   <div class="row"><div class="col mx-auto" style="background:white;color:black;"><center>
+
+		   </center><br></div></div>
+
+ </form>
 {% endblock %}
 

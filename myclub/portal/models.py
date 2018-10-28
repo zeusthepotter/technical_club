@@ -29,8 +29,19 @@ class Member(models.Model):
     def __str__(self):
         return self.name + ' ' + str(self.roll)
 
+
+class Project(models.Model):
+    worker = models.ManyToManyField(User)
+    title =  models.CharField(max_length=100)
+    description =  models.CharField(max_length=500)
+    deadline = models.DateField()
+
+    def __str__(self):
+        return self.title
+
 class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    project = models.OneToOneField(Project,on_delete=models.CASCADE,null = True,blank=True)
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
@@ -43,12 +54,3 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-
-class Project(models.Model):
-    worker = models.ManyToManyField(User)
-    title =  models.CharField(max_length=100)
-    description =  models.CharField(max_length=500)
-    deadline = models.DateField()
-
-    def __str__(self):
-        return self.title

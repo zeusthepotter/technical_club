@@ -72,8 +72,11 @@ def view_my_posts(request):
 
 @login_required
 def view_red_zone(request):
-    u= User.objects.all().filter(project__deadline__lte=datetime.now().date())
-    return render(request, 'portal/red_zone.html', {'user':request.user ,'red_users':u })
+    U= User.objects.all().filter(project__deadline__lte=datetime.now().date())
+    for u in U:
+        u.member.pending_status=True
+    
+    return render(request, 'portal/red_zone.html', {'user':request.user ,'red_users':U })
 
 
 
