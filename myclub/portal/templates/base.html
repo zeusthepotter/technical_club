@@ -1,0 +1,160 @@
+{% load static %}
+{% url 'login' as login_url %}
+{% url 'register_user' as register_url %}
+{% url 'profile' as profile_url %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- <title>Base template</title> -->
+    {% include 'base/css.html' %}
+    {% block base_head %} {% endblock %}
+    <style>
+    .navbar-brand{
+    color:white;
+    text-transform:uppercase;
+    }
+ #hk{
+    color:red;
+    }
+.navbar-dark{
+background-color: rgba(0,0,0,0.5);
+}
+      body {
+      border:1px solid transparent;
+      background: linear-gradient(to bottom right, #005c97, #363795);
+      //background-image: url("{% static 'portal/bg.jpg' %}");
+      background-size:cover;
+      min-height:100vh;
+      color:white;
+      font-family:'roboto',sans-serif;
+
+      }
+.nav-link{
+      text-transform:uppercase;
+      color:white;
+
+}
+.nav-item{
+    padding-left:10px;
+}
+.act{
+     display:inline-block;
+     baackground-color:white;
+     color:darkblue;
+ }
+.foot{
+      margin-bottom:0px;}
+    </style>
+  </head>
+    <body>
+    {% include 'base/navbar.html' with brand_name='Portal' %}
+<div class="container">
+  {% if request.path == login_url or request.path == register_url or request.path == profile_url %}
+<br/><br/>
+  {% block content1 %}{% endblock %}
+<br/><br/>
+  {% else %}
+  <div class="row">
+    <div class="col col-lg-12 col-sm-12 col-md-12"><br/><br/>
+    {% block content %}{% endblock %}
+    <br/><br/>
+  </div>
+
+
+  </div>
+
+  {% endif %}
+</div>
+
+
+
+
+<!--&lt;!&ndash; Footer &ndash;&gt;-->
+<!--<footer class="page-footer font-small blue pt-4 foot" style="background:rgba(0,0,0,0.5);margin-top:5px;">-->
+
+    <!--&lt;!&ndash; Footer Links &ndash;&gt;-->
+    <!--<div class="container-fluid text-center text-md-left" >-->
+
+      <!--&lt;!&ndash; Grid row &ndash;&gt;-->
+      <!--<div class="row">-->
+
+        <!--&lt;!&ndash; Grid column &ndash;&gt;-->
+        <!--<div class="col-md-6 mt-md-0 mt-3">-->
+
+          <!--&lt;!&ndash; Content &ndash;&gt;-->
+          <!--<h5 class="text-uppercase">Footer Content</h5>-->
+          <!--<p>Here you can use rows and columns here to organize your footer content.</p>-->
+
+        <!--</div>-->
+        <!--&lt;!&ndash; Grid column &ndash;&gt;-->
+
+        <!--<hr class="clearfix w-100 d-md-none pb-3">-->
+
+        <!--&lt;!&ndash; Grid column &ndash;&gt;-->
+        <!--<div class="col-md-3 mb-md-0 mb-3">-->
+
+            <!--&lt;!&ndash; Links &ndash;&gt;-->
+            <!--<h5 class="text-uppercase">Links</h5>-->
+
+            <!--<ul class="list-unstyled">-->
+              <!--<li>-->
+                <!--<a href="#!">Link 1</a>-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--<a href="#!">Link 2</a>-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--<a href="#!">Link 3</a>-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--<a href="#!">Link 4</a>-->
+              <!--</li>-->
+            <!--</ul>-->
+
+          <!--</div>-->
+          <!--&lt;!&ndash; Grid column &ndash;&gt;-->
+
+          <!--&lt;!&ndash; Grid column &ndash;&gt;-->
+          <!--<div class="col-md-3 mb-md-0 mb-3">-->
+
+            <!--&lt;!&ndash; Links &ndash;&gt;-->
+            <!--<h5 class="text-uppercase">Links</h5>-->
+
+            <!--<ul class="list-unstyled" >-->
+              <!--<li>-->
+                <!--<a href="#!">Link 1</a>-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--<a href="#!">Link 2</a>-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--<a href="#!">Link 3</a>-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--<a href="#!">Link 4</a>-->
+              <!--</li>-->
+            <!--</ul>-->
+
+          <!--</div>-->
+          <!--&lt;!&ndash; Grid column &ndash;&gt;-->
+
+      <!--</div>-->
+      <!--&lt;!&ndash; Grid row &ndash;&gt;-->
+
+    <!--</div>-->
+    <!--&lt;!&ndash; Footer Links &ndash;&gt;-->
+
+    <!--&lt;!&ndash; Copyright &ndash;&gt;-->
+    <!--<div class="footer-copyright text-center py-3">© 2018 Copyright:-->
+      <!--<a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; Copyright &ndash;&gt;-->
+
+  <!--</footer>-->
+  <!-- Footer -->
+    {% include 'base/js.html' %}
+     </body>
+</html>

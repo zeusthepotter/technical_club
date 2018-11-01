@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from .forms import PostForm, UserForm, ProjectForm
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from datetime import datetime
 
 
 
@@ -25,10 +24,10 @@ def profile(request):
             return redirect('profile')
     else:
         form = PostForm()
-    
-    return render(request, 'portal/profile.html', context = {'member': request.user.member, 'form':form } )
+    posts = Post.objects.filter(author=request.user)
+    return render(request, 'portal/profile.html', context = {'member': request.user.member, 'form':form ,'posts':posts} )
 
-
+@login_required
 def create_project(request):
     if request.method == "POST":
             form = ProjectForm(request.POST)
@@ -38,8 +37,8 @@ def create_project(request):
                 return redirect('profile')
     else:
         form = ProjectForm()
-        
-    return render(request, 'portal/create_project.html', context = {'member': request.user.member, 'form':form } )
+    projects =  Project.objects.filter(worker=request.user).order_by("deadline")
+    return render(request, 'portal/create_project.html', context = {'member': request.user.member, 'form':form, 'projects':projects } )
 
 
 @login_required
@@ -72,11 +71,8 @@ def view_my_posts(request):
 
 @login_required
 def view_red_zone(request):
-    U= User.objects.all().filter(project__deadline__lte=datetime.now().date())
-    for u in U:
-        u.member.pending_status=True
-    
-    return render(request, 'portal/red_zone.html', {'user':request.user ,'red_users':U })
+    m= Post.objects.filter(author=request.user)
+    return render(request, 'portal/my_posts.html', {'user':request.user ,'posts':posts })
 
 
 
@@ -104,7 +100,7 @@ def register_user(request):
         form = UserForm(request.POST, request.FILES)
         if form.is_valid():
             
-            user = User.objects.create_user(form.cleaned_data['roll'], form.cleaned_data['email'],form.cleaned_data['password'])
+            user = User.objects.create_user(str(form.cleaned_data['roll']), form.cleaned_data['email'],form.cleaned_data['password'])
             user.pending_status=False
             user.save()
             p = form.save(commit=False)

@@ -1,9 +1,5 @@
-{% extends 'portal/base.html' %}
-{% block heading %}
-
-
-{% endblock %}
-{% block content %}
+{% extends 'base.html' %}
+{% block content1 %}
 
 {% if request.user.is_superuser %}
 
@@ -23,27 +19,50 @@ Your account has not been authenticated yet!
 
 
 
-{% else %}
+{% else %}<center>
+<div class="row">
+    <div class="col col-lg-4 col-md-4 col-sm-12 mr-auto " style="background:white;color:black;border-right:1px solid grey;//line-height:90%;">
+		<br/>
+<img class="img-rounded img-thumbnail mx-auto" alt="Responsive image" src="{{ member.image_url }}" style="height:200px;width:230px;border-radius:50%;" >
 
+<br/>
+        <div style="background:#FBFCFC;"><hr/>
+        <h1>{{ member.name }}</h1>
+        {{ member.role }}<br/>
+        {{ member.team }}<br/>
+        {{ member.branch }} &nbsp {{ member.year }}<br/><hr/></div>
+        <div class="row"><div class="col ">Phone</div><div class="col">{{ member.contact_no }}</div></div>
+        <div class="row"><div class="col ">Email</div><div class="col">{{ member.email }}</div></div>
 
-    <img src="{{ member.image_url }}" width="150px" height="100px">
+<br/></div>
+ <div class="col col-lg-8 col-md-8 col-sm-12 mr-auto " style="background:#FBFCFC;color:black;border-right:2px solid gray;overflow-y:scroll;">
+<h2 style="text-align:left;margin-top:30px;margin-left:10px;">MY ACTIVITIES<hr/></h2>
+     {% for p in posts %}
+    <div class="row" >
+     <div class="col col-3" style="//float:left;text-align:left;background:#FBFCFC;margin-left:10px;">
+     <b>TITLE</b><br/></div>
+    <div class="col col-8" style="//float:left;text-align:left;background:#FBFCFC;">
+            <b> DESCRIPTION</b>
 
+    </div>
+    </div>
+     <div class="row" style="margin-top:10px;">
+     <div class="col col-3" style="//float:left;text-align:left;background:#FBFCFC;margin-left:10px;">
+     {{ p.title }}<br/></div>
 
-<p>{{ member.name }}</p>
-<p>{{ member.roll }}</p>
-<p>{{ member.contact_no }}</p>
-<p>{{ member.email }}</p>
-<p>{{ member.branch }}</p>
-<p>{{ member.year }}</p>
-<p>{{ member.team }}</p>
-<p>{{ member.role }}</p>
-
-<h1>New post</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
-
+    <div class="col col-8" style="//float:left;text-align:left;background:#FBFCFC;">
+     {{ p.text|truncatewords:14 }}
+    </div>
+    </div>
+        {% endfor %}
+<div class="row" style="margin-top:30%;"><div class="col">
+     <a class="btn" style="float:right;background:#21618C;color:white;border-radius:20px;width:150px;" href="" >+ Add New Post</a><br/>
+</div></div>
+</div>
+ </center>
 {% endif %}
+
+
+
 
 {% endblock %}

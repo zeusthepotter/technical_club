@@ -1,18 +1,15 @@
-{% extends 'portal/base.html' %}
+ {% extends 'base.html' %}
 
 {% block title %}
       {% load static %}
   	<link rel="stylesheet" type="text/css" href="{% static "polls/st.css" %}">
 {% endblock %}
 
-{% block heading %}
-     
-{% endblock %}
-  
-{% block content %}
+{% block content1 %}
   
        {% if form.errors %}
-      <p>Your username and password didn't match. Please try again.</p>
+      <p>Your username and password didn't match. Please try again.</p><br/>
+    <p align="left">Contact the admin if you have forgotten your password.</p>
       {% endif %}
       {% if next %}
       {% if user.is_authenticated %}
@@ -35,20 +32,35 @@
      </p>
      {% else %} 
 
-  	<div class="loginbox">
-        <h2>Log In</h2>
-        <img src="{% static "portal/robot.jpg" %}" height="180" width = "250" style="float:right">
-  	<form method="post" action="{% url 'login' %}">
+  	<div class="row">
+		<div class="col col-lg-8 mx-auto">
+	    <h2>Welcome to Portal!</h2></div>
+    </div>
+ <br/><hr/>
+ <div class="row" >
+        <!--<img src="{% static "portal/robot.jpg" %}" height="180" width = "250" style="float:right">-->
+  	<div class="col col-lg-5 col-md-6 col-sm-6 mx-auto" style="background:white;color:black;padding-left:100px;">
+	    <br/>
+	    <h2>Log In </h2><br/>
+	    <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
 
   		<p>Username</p>
-  		{{ form.username }}
+  		{{ form.username }}<br/><br/>
   		<p>Password</p>
-  		{{ form.password }}
-  		<input type="Submit" name="" value="login"><br>
+  		{{ form.password }}<br/><br/>
+  		<input class="btn" style="background:darkblue;color:white;border-radius:20px;width:150px;" type="Submit" name="" value="LOGIN"><br>
         <input type="hidden" name="next" value="{{ next }}" />
-  		<p align="center">Contact the admin if you have forgotten your password.</p>
+
   	</form>
+    <br/>
+
+	 <a class="link" href="{% url 'register_user' %}">Create a new account </a>
+<br/><br/><br/><br/><br/><br/><br/>
+    </div>
+
+
+
 </div>
 
 

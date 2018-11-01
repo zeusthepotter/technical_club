@@ -1,14 +1,21 @@
-{% extends 'portal/base.html' %}
+{% extends 'base.html' %}
 
-{% block content %}
+{% block content1 %}
 
+<!--<form method="post" action="" enctype='multipart/form-data'>-->
+    <!--{% csrf_token %}-->
+    <!--{{ form.as_p }}-->
+    <!--<input type="submit" value="Create new user account" />-->
+<!--</form>-->
+<div class="row" >
+      	<div class="col mx-auto" style="background:white;color:black;padding-left:100px;">
+	    <br>
+            <h2>Register Here</h2><br></div></div>
 
 	    <form method="post" action="" enctype='multipart/form-data'>
         {% csrf_token %}
-
-        <h2>&nbsp &nbsp &nbsp Registration Form</h2><br>
-       <div class="row" style="overflow:hidden;">
- 	<div class="col" style="background:white;color:black;padding-left:100px ;float: left; ">
+       <div class="row" >
+ 	<div class="col" style="background:white;color:black;padding-left:100px;">
     <p>Name</p>
             {{ form.name }}
   		 <br><br>
@@ -28,7 +35,7 @@
              <p>Contact No</p>
             {{ form.contact_no }}
             <br><br></div>
-	<div class="col" style="background:white;color:black;float: left;padding-left:100px ">
+	<div class="col" style="background:white;color:black;padding-left:100px;">
              <p>Role</p>
             {{ form.role }}
   		 <br><br>
@@ -47,7 +54,7 @@
 			   	    <input type="submit" class="btn" style="background:darkblue;color:white;border-radius:20px;width:170px;height:50px;" value="Create Account" />
   	    <br>
 		<br>
-		<a class="link" href="{% url 'login' %}"> Already Registered? Login</a>
+		<a class="link" href="{% url 'login' %}"> Already Registered?Login</a>
 	</div>
 
     <br>

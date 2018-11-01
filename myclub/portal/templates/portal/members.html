@@ -1,4 +1,4 @@
-{% extends 'portal/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
@@ -16,13 +16,13 @@ Your account has not been authenticated yet!
 
 
 
-<h2> Members of Technical Club RECK</h2>
+<h2> TEAM MEMBERS</h2>
 <table>
         
 
 {% for m in members %}
     <tr>
-        <td>{{ forloop.counter }}</td>
+        <td style="color:black;">{{ forloop.counter }}.</td>
 
         
         
@@ -30,16 +30,16 @@ Your account has not been authenticated yet!
         <td>
         
             <a href="/portal/profile/{{ m.roll }}/">
-            <img src="{{ m.image_url }}" width="150px" height="100px">
+            <img class="img-rounded img-thumbnail mx-auto" alt="Responsive image"  style="height:100px;width:130px;border-radius:50%;" src="{{ m.image_url }}" >
             </a>
          
         </td>
         <td>
             
-                <a href="/portal/profile/{{ m.roll }}/"> {{ m.name }} </a>
+                <a style="color:black;" href="/portal/profile/{{ m.roll }}/"> {{ m.name }} </a>
         </td>
-        <td>{{ m.team }}</td>
-        <td>{{ m.branch }}</td>
+        <td style="color:black;">{{ m.role }}</td>
+        <td style="color:black;">{{ m.team }}</td>
 
     </tr>
 {% endfor %}

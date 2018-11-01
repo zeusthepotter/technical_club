@@ -1,4 +1,4 @@
-{% extends 'portal/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
@@ -15,22 +15,24 @@ Your account has not been authenticated yet!
 
 {% else %}
 
-<table align="center">
-        <caption><h3>Activity</h3></caption>
-    
+<table class="table" style="border:1px solid white;">
+  <thead style="background:white;color:black;">
     <tr>
-        <td><b>Author</b></td>
-        <td><b>Post </b></td>
-        
-    </tr>
-    {% for p in posts %}
-        <tr>
-            <td>{{ p.author.member.name }}</td>
-            <td>{{ p.text }} </td>
-            
-        </tr>
-    {% endfor %}
-    </table>    
+      <th scope="col">ACTIVITY</th>
+      <th scope="col">PROJECT</th>
+      <th scope="col">MEMBER</th>
+     </tr>
+  </thead>
+  <tbody style="background:#F7F9F9;color:black;">
+  {% for p in posts %}
+  <tr>
+      <th scope="row">{{ p.text }}</th>
+   <th scope="row">#</th>
+      <th scope="row">{{ p.author.member.name }}</th>
+
+  </tr>{% endfor %}
+   </tbody>
+    </table>
 
 {% endif %}
 

@@ -1,12 +1,58 @@
-{% extends 'portal/base.html' %}
+{% extends 'base.html' %}
 
-{% block content %}
-
-<form method="post" action="">
+{% block content %}<form method="post" action="">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Create new project" />
+
+<div class="row">
+    <div class="col col-lg-4 col-md-4 col-sm-12 mr-auto " style="background:white;color:black;border-right:1px solid grey;">
+		<br/>Add Project
+        <div style="background:#FBFCFC;"><hr/>
+            Project Title
+<br/>
+        {{ form.title }}<br/>
+            Description<br/>
+        {{ form.description }}<br/>
+            Members<br/>
+        {{ form.worker }}<br/>
+            Deadline<br/>
+        {{ form.deadline }}<br/><hr/></div>
+
+<br/>
+    <input class="btn" style="background:#21618C;color:white;border-radius:20px;width:150px;" type="submit" value="Create new project" /><br/><br/>
+    </div>
+ <div class="col col-lg-8 col-md-8 col-sm-12 mr-auto " style="background:#FBFCFC;color:black;border-right:2px solid gray;overflow-y:scroll;">
+<h2 style="text-align:left;margin-top:30px;margin-left:10px;">My Projects<hr/></h2>
+     {% for p in projects %}
+    <div class="row" >
+     <div class="col col-3" style="//float:left;text-align:left;background:#FBFCFC;margin-left:10px;">
+     <b>TITLE</b><br/></div>
+    <div class="col col-8" style="//float:left;text-align:left;background:#FBFCFC;">
+            <b> DESCRIPTION</b>
+
+    </div>
+    </div>
+     <div class="row" style="margin-top:10px;">
+     <div class="col col-3" style="//float:left;text-align:left;background:#FBFCFC;margin-left:10px;">
+     {{ p.title }}<br/></div>
+
+    <div class="col col-8" style="//float:left;text-align:left;background:#FBFCFC;">
+     {{ p.description|truncatewords:14 }}
+    </div>
+    </div>
+        {% endfor %}
+<div class="row" style="margin-top:30%;"><div class="col">
+
+</div></div>
+ </div></div>
+ </center>
+
 </form>
+
+<!--<form method="post" action="">-->
+    <!--{% csrf_token %}-->
+    <!--{{ form.as_p }}-->
+    <!--<input type="submit" value="Create new project" />-->
+<!--</form>-->
 
 {% endblock %}
 

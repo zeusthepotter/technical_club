@@ -1,24 +1,24 @@
-{% extends 'portal/base.html' %}
-{% block heading %}
-
-
-{% endblock %}
+{% extends 'base.html' %}
 {% block content %}
 
+<center>
+<div class="row">
+    <div class="col col-6 mx-auto " style="background:white;color:black;border-right:2px solid gray;">
+		<br/>
+<img class="img-rounded img-thumbnail mx-auto" alt="Responsive image" src="{{ member.image_url }}" style="height:250px;width:280px;border-radius:50%;" >
 
+<br/><hr/><h1>{{ member.name }}</h1>
+        {{ member.role }}<br/>
+        {{ member.team }}<br/>
+        {{ member.branch }} &nbsp {{ member.year }}<br/><hr/>
+        <div class="row"><div class="col ">Phone</div><div class="col">{{ member.contact_no }}</div></div>
+        <div class="row"><div class="col ">Email</div><div class="col">{{ member.email }}</div></div>
 
+<br/></div>
 
-    <img src="{{ member.image_url }}" width="150px" height="150px">
+</div>
+ </center>
 
-
-<p>{{ member.name }}</p>
-<p>{{ member.roll }}</p>
-<p>{{ member.contact_no }}</p>
-<p>{{ member.email }}</p>
-<p>{{ member.branch }}</p>
-<p>{{ member.year }}</p>
-<p>{{ member.team }}</p>
-<p>{{ member.role }}</p>
 
 
 
