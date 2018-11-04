@@ -20,11 +20,11 @@ td {
 }
 
 tr:nth-child(even) td {
-  background-color: lightgray;
+  background-color: white;
 }
 
 tr:nth-child(odd) td {
-  background-color: wheat;
+  background-color: white;
 }
 
 

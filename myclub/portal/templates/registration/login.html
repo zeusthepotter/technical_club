@@ -1,69 +1,64 @@
  {% extends 'base.html' %}
 
-{% block title %}
-      {% load static %}
-  	<link rel="stylesheet" type="text/css" href="{% static "polls/st.css" %}">
-{% endblock %}
 
-{% block content1 %}
+
+{% block content %}
   
-       {% if form.errors %}
-      <p>Your username and password didn't match. Please try again.</p><br/>
-    <p align="left">Contact the admin if you have forgotten your password.</p>
-      {% endif %}
-      {% if next %}
-      {% if user.is_authenticated %}
-      <p>Your account doesn't have access to this page. To proceed,
-      please login with an account that has access.</p>
-      {% else %}
-      <p>Please login to see this page.</p>
-     {% endif %}
-     {% endif %}
-     
+    
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+{% if next %}
+{% if user.is_authenticated %}
+<p>Your account doesn't have access to this page. To proceed,
+please login with an account that has access.</p>
+{% else %}
+<p>Please login to see this page.</p>
+{% endif %}
+{% endif %}
+
      
       
-      
-     {% if user.is_authenticated %}
-     <p>
-     <h2 style="text-align: center; color: orange" >Welcome to Technical Club RECK's portal!</h2>
-     <img src="{% static "portal/robot.png" %}" height="280" width = "350" style="display: block;
-                                                                              margin-left: auto;
-                                                                              margin-right: auto;">
-     </p>
-     {% else %} 
+   
+    
 
-  	
- <div class="row" >
-     
-        <!--<img src="{% static "portal/robot.jpg" %}" height="180" width = "250" style="float:right">-->
-  	<div class="col col-lg-5 col-md-6 col-sm-6 mx-auto" style="background:white;color:black;padding-left:120px;">
-	    <br/>
-	    <h2 style="padding-left:70px;">Log In </h2><br/>
-        <img src="{% static "portal/robot.png" %}" height="180" width = "230" style="display: block;
-                                                                              margin-left: auto;
-                                                                              margin-right: auto;  ">
-	    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-
-  		<p>Username</p>
-  		{{ form.username }}<br/><br/>
-  		<p>Password</p>
-  		{{ form.password }}<br/><br/>
-  		<input class="btn" style="background:darkblue;color:white;border-radius:20px;width:150px;" type="Submit" name="" value="LOGIN"><br>
-        <input type="hidden" name="next" value="{{ next }}" />
-
-  	</form>
-    <br/>
-
-	 <a class="link" href="{% url 'register_user' %}">Create a new account </a>
-<br/><br/><br/><br/><br/><br/><br/>
-    </div>
-
+     <div class="card-header">Login</div>
+     <div class="card-body">
+       <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+         <div class="form-group">
+           <div class="form-label-group">
+             {{form.username}}
+             <label for="inputEmail">Username</label>
+           </div>
+         </div>
+         <div class="form-group">
+           <div class="form-label-group">
+             {{ form.password }}
+             <label for="inputPassword">Password</label>
+           </div>
+         </div>
+         <div class="form-group">
+           <div class="checkbox">
+             <label>
+               <input type="checkbox" value="remember-me">
+               Remember Password
+             </label>
+           </div>
+         </div>
+         <input type="Submit" name="" value="Log In"><br>
+         <input type="hidden" name="next" value="{{ next }}">
+       </form>
+       <div class="text-center">
+         <a class="d-block small mt-3" href="/portal/register_user">Register an Account</a>
+         <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+       </div>
+     </div>
 
 
-</div>
 
 
-  {% endif %}
+
+
 
   {% endblock %}
