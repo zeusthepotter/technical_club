@@ -24,7 +24,9 @@ background-color: rgba(0,0,0,0.5);
 }
       body {
       border:1px solid transparent;
-      background: linear-gradient(to bottom right, #005c97, #363795);
+      background-image: url("{% static 'portal/pattern.png' %}");
+      background-repeat: repeat;
+/*      background: linear-gradient(to bottom right, #005c97, #363795);*/
       //background-image: url("{% static 'portal/bg.jpg' %}");
       background-size:cover;
       min-height:100vh;
@@ -41,7 +43,7 @@ background-color: rgba(0,0,0,0.5);
 }
 .act{
      display:inline-block;
-     baackground-color:white;
+     background-color:white;
      color:darkblue;
  }
 .foot{
@@ -58,8 +60,10 @@ background-color: rgba(0,0,0,0.5);
   {% block content1 %}{% endblock %}
 <br/><br/>
   {% else %}
-  <div class="row">
+  <div class="row"> 
+    
     <div class="col col-lg-12 col-sm-12 col-md-12"><br/><br/>
+        
     {% block content %}{% endblock %}
     <br/><br/>
   </div>

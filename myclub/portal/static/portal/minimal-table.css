@@ -1,7 +1,7 @@
 
 table {
   border-collapse: collapse;
-  
+ 
   letter-spacing: 1px;
   
 }
@@ -12,7 +12,7 @@ td, th {
 }
 
 th {
-  background-color: rgb(235,235,235);
+  background-color: gray;
 }
 
 td {
@@ -20,11 +20,11 @@ td {
 }
 
 tr:nth-child(even) td {
-  background-color: rgb(250,250,250);
+  background-color: lightgray;
 }
 
 tr:nth-child(odd) td {
-  background-color: rgb(245,245,245);
+  background-color: wheat;
 }
 
 caption {
