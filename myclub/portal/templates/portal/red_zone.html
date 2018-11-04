@@ -1,4 +1,4 @@
-{% extends 'portal/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
@@ -16,7 +16,21 @@ Your account has not been authenticated yet!
 {% else %}
 
 Red Zoned Users
-
+{% load static %}
+<div id= "red_zone">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 <table>
         
 
@@ -47,6 +61,7 @@ Red Zoned Users
     {% endfor %}
     </table>    
     
+</div>
     {% endif %}
     {% load static %}
     <link href="{% static "portal/minimal-table.css" %}" rel="stylesheet" type="text/css">

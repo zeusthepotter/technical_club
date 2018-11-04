@@ -21,11 +21,13 @@ please login with an account that has access.</p>
       
    
     
-
-     <div class="card-header">Login</div>
+<div class="text-center">
+     <div class="card-header"><h4>Log In</h4></div>
      <div class="card-body">
+        
        <form method="post" action="{% url 'login' %}">
           {% csrf_token %}
+          
          <div class="form-group">
            <div class="form-label-group">
              {{form.username}}
@@ -46,12 +48,15 @@ please login with an account that has access.</p>
              </label>
            </div>
          </div>
-         <input type="Submit" name="" value="Log In"><br>
+         <input class="btn" style="background:green;color:white;border-radius:20px;width:150px;" type="Submit" name="" value="Log In"><br>
          <input type="hidden" name="next" value="{{ next }}">
        </form>
-       <div class="text-center">
-         <a class="d-block small mt-3" href="/portal/register_user">Register an Account</a>
-         <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+        
+
+
+         <br>
+         <a class="btn btn-primary btn-block" href="/portal/register_user">Register an Account</a>
+         
        </div>
      </div>
 
