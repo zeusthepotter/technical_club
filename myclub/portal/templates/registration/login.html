@@ -18,10 +18,17 @@ please login with an account that has access.</p>
 {% endif %}
 
      
-      
-   
+{% if user.is_authenticated %}
+
+
+<h4>Welcome to RECK Technical Club's Portal!
+</h4>
+{% else %}
+
+
+  
     
-<div class="text-center">
+<div class="text-center" style="width:40%; margin:auto;">
      <div class="card-header"><h4>Log In</h4></div>
      <div class="card-body">
         
@@ -63,7 +70,7 @@ please login with an account that has access.</p>
 
 
 
-
+{% endif %}
 
 
   {% endblock %}
