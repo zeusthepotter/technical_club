@@ -40,8 +40,8 @@ class Project(models.Model):
         return self.title
 
 class Post(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    project = models.OneToOneField(Project,on_delete=models.CASCADE,null = True,blank=True)
+    author = models.OneToOneField(User, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project,on_delete=models.CASCADE,null = True,blank=True)
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)

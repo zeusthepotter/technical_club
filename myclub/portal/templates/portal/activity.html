@@ -15,24 +15,29 @@ Your account has not been authenticated yet!
 
 {% else %}
 
-<table class="table" style="border:1px solid white;">
-  <thead style="background:white;color:black;">
-    <tr>
-      <th scope="col">ACTIVITY</th>
-      <th scope="col">PROJECT</th>
-      <th scope="col">MEMBER</th>
-     </tr>
-  </thead>
-  <tbody style="background:#F7F9F9;color:black;">
+
+
+
+
+<table>
   {% for p in posts %}
   <tr>
-      <th scope="row">{{ p.text }}</th>
-   <th scope="row">#</th>
-      <th scope="row">{{ p.author.member.name }}</th>
+    <td style="padding-right: 20px">
+    <img style="height:80px;width:150px;border-radius:50%;" src="{{ p.author.member.image_url }}">
+  </td>
+  <td>
+    <strong>{{ p.author.member.name }}</strong> <span class="text-muted">posted # days ago</span>
+  
+    <h4> {{ p.title }}</h4>
+    {{ p.text }}
+    
+  </td>
+  
+  
 
-  </tr>{% endfor %}
-   </tbody>
-    </table>
+  </tr>
+  {% endfor %}
+</table>
 
 {% endif %}
 
