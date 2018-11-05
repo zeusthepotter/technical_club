@@ -14,23 +14,12 @@ Your account has not been authenticated yet!
 
 
 {% else %}
-
+<h4>
 Red Zoned Users
+</h4>
 {% load static %}
-<div id= "red_zone">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
+<img src="{% static "portal/skull.png" %}" height=300px align="right">
 <table>
         
 
@@ -61,7 +50,7 @@ Red Zoned Users
     {% endfor %}
     </table>    
     
-</div>
+
     {% endif %}
     {% load static %}
     <link href="{% static "portal/minimal-table.css" %}" rel="stylesheet" type="text/css">

@@ -32,7 +32,7 @@ Your account has not been authenticated yet!
       <th scope="row">{{ forloop.counter }}</th>
       <th scope="row">{{ p.title }}</th>
       <th scope="row">{{ p.description }}</th>
- <th scope="row">#</th>
+    <th scope="row">{% for x in p.worker.all %}{{ x.member.name }}, {% endfor %}</th>
 
   </tr>{% endfor %}
    </tbody>
