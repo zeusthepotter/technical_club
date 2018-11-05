@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<!-- 
 {% if request.user.is_superuser %}
 
 
-<h3> Welcome, Superuser! </h3>
+<h3> Welcome, Superuser! </h3> -->
 
 
 
 
-{% elif request.user.member.pending_status == True %}
+{% if request.user.member.pending_status == True %}
 
 
 Your account has not been authenticated yet!
@@ -19,7 +19,9 @@ Your account has not been authenticated yet!
 
 
 
-{% else %}<center>
+{% else %}
+
+<center>
 <div class="row">
     <div class="col col-lg-4 col-md-4 col-sm-12 mr-auto " style="background:white;color:black;//line-height:90%;">
 		<br/>
