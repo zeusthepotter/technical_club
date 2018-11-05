@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if request.user.member.pending_status == True %}
+
+
+Your account has not been authenticated yet!
+
+
+
+
+
+
+{% else %}
+
+
+<h4>New post</h4>
+<br>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Post</button>
+    </form>
+
+
+{% endif %}
+
+
+{% endblock %}

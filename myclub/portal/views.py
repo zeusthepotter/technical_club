@@ -28,6 +28,20 @@ def profile(request):
     
     return render(request, 'portal/profile.html', context = {'member': request.user.member, 'form':form } )
 
+def add_post(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('profile')
+    else:
+        form = PostForm()
+    
+    return render(request, 'portal/add_post.html', context = {'member': request.user.member, 'form':form } )
+
 
 def create_project(request):
     if request.method == "POST":

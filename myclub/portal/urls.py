@@ -8,6 +8,7 @@ urlpatterns = [
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
     path('profile/<int:pk>/', views.view_profile, name='view_profile'),
     path('profile/posts/', views.view_my_posts,name = 'view_my_posts'),
+    path('add_post/', views.add_post,name = 'add_post'),
     path('members/', views.view_members,name = 'view_members'),
     path('activity/', views.view_activity,name = 'view_activity'),
     path('register_user/', views.register_user,name = 'register_user'),
