@@ -31,28 +31,32 @@ Your account has not been authenticated yet!
         <div class="row"><div class="col ">Email</div><div class="col">{{ member.email }}</div></div>
 
 <br/></div>
- <div class="col col-lg-8 col-md-8 col-sm-12 mr-auto " style="background:#FBFCFC;color:black;border-right:2px solid gray;overflow-y:scroll;">
+ <div class="col col-lg-8 col-md-8 col-sm-12 mr-auto " style="background:#FBFCFC;color:black;border-left:1px solid lightgrey;overflow-y:scroll;">
 <h2 style="text-align:left;margin-top:30px;margin-left:10px;">My Activity<hr/></h2>
+
+<table>
+        <col width="130">
+        <col width="480">
+
+        <tr style="height:60px">
+                <td><b> Title </b></td>
+                <td><b>Description</b></td>
+
+
+        </tr>   
      {% for p in posts %}
-    <div class="row" >
-     <div class="col col-3" style="//float:left;text-align:left;background:#FBFCFC;margin-left:10px;">
-     <b>TITLE</b><br/></div>
-    <div class="col col-8" style="//float:left;text-align:left;background:#FBFCFC;">
-            <b> Description</b>
+        <tr>
+                <td> {{ p.title }} </td>
+                <td>{{ p.text|truncatewords:14 }}</td>
 
-    </div>
-    </div>
-     <div class="row" style="margin-top:10px;">
-     <div class="col col-3" style="//float:left;text-align:left;background:#FBFCFC;margin-left:10px;">
-     {{ p.title }}<br/></div>
 
-    <div class="col col-8" style="//float:left;text-align:left;background:#FBFCFC;">
-     {{ p.text|truncatewords:14 }}
-    </div>
-    </div>
+        </tr>
+       
         {% endfor %}
+
+</table>
 <div class="row" style="margin-top:30%;"><div class="col">
-     <a class="btn" style="float:right;background:#21618C;color:white;border-radius:20px;width:150px;" href="/portal/add_post" >+ Add New Post</a><br/>
+     <a class="btn btn-primary btn-block" style="width:150px;" href="/portal/add_post" >+ Add New Post</a><br/>
 </div></div>
 </div>
  </center>

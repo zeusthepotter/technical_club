@@ -40,7 +40,7 @@ class Project(models.Model):
         return self.title
 
 class Post(models.Model):
-    author = models.OneToOneField(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE,null=True,blank=True)
     project = models.ForeignKey(Project,on_delete=models.CASCADE,null = True,blank=True)
     title = models.CharField(max_length=200)
     text = models.TextField()

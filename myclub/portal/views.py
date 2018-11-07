@@ -26,7 +26,7 @@ def profile(request):
     else:
         form = PostForm()
     
-    return render(request, 'portal/profile.html', context = {'member': request.user.member, 'form':form } )
+    return render(request, 'portal/profile.html', context = {'member': request.user.member, 'form':form, 'posts': Post.objects.filter(author=request.user) } )
 
 def add_post(request):
     if request.method == "POST":
