@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  height: 100%;
+  max-height: 120vh;
 }
 
 #wrapper {
@@ -375,3 +375,8 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 
+.container-fluid {
+  overflow-y: auto;
+  max-height: 90vh;
+
+}
