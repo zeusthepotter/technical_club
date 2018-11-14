@@ -26,7 +26,7 @@ Your account has not been authenticated yet!
     <img style="height:80px;" class="rounded-circle " src="{{ p.author.member.image_url }}">
   </td>
   <td>
-    <strong>{{ p.author.member.name }}</strong> <span class="text-muted">posted # days ago</span>
+    <strong>{{ p.author.member.name }}</strong> <span class="text-muted">posted {{ p.created_date|timesince  }} ago</span>
   
     <h4> {{ p.title }}</h4>
     {{ p.text }}
