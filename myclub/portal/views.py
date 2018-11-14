@@ -28,6 +28,7 @@ def profile(request):
     
     return render(request, 'portal/profile.html', context = {'member': request.user.member, 'form':form, 'posts': Post.objects.filter(author=request.user) } )
 
+@login_required
 def add_post(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -42,7 +43,7 @@ def add_post(request):
     
     return render(request, 'portal/add_post.html', context = {'member': request.user.member, 'form':form } )
 
-
+@login_required
 def create_project(request):
     if request.method == "POST":
             form = ProjectForm(request.POST)
@@ -144,7 +145,8 @@ def reg_successful(request):
 
     return render(request, 'portal/reg_successful.html' )
 
-
+def chat(request):
+    return render(request, 'portal/chat.html' )
 
 @login_required    
 def authenticate_pending_users(request):

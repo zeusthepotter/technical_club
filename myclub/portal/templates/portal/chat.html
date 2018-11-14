@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if request.user.member.pending_status == True %}
+
+
+Your account has not been authenticated yet!
+
+
+
+
+
+
+{% else %}
+
+
+<iframe src="https://kiwiirc.com/client/irc.kiwiirc.com/?nick=Club|?#reckclub" style="border:0; width:100%; height:600px;"></iframe>
+
+
+{% endif %}
+
+
+{% endblock %}

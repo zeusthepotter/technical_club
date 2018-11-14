@@ -380,3 +380,8 @@ body.sidebar-toggled footer.sticky-footer {
   max-height: 90vh;
 
 }
+
+::selection {
+  background-color: #da7c11;
+  color: #fff;
+}
