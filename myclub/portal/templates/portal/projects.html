@@ -23,16 +23,18 @@ Your account has not been authenticated yet!
 
       <th scope="col">Title</th>
       <th scope="col">Description</th>
+      <th scope="col">Deadline</th>
       <th scope="col">Members</th>
      </tr>
   </thead>
   <tbody style="background:#F7F9F9;color:black;">
  {% for p in projects %}
   <tr>
-      <th scope="row">{{ forloop.counter }}</th>
-      <th scope="row">{{ p.title }}</th>
-      <th scope="row">{{ p.description }}</th>
-    <th scope="row">{% for x in p.worker.all %}{{ x.member.name }}, {% endfor %}</th>
+      <td scope="row">{{ forloop.counter }}</th>
+      <td scope="row">{{ p.title }}</th>
+      <td scope="row">{{ p.description }}</th>
+      <td scope="row">{{ p.deadline }}</th>
+      <td scope="row">{% for x in p.worker.all %}{{ x.member.name }}, {% endfor %}</th>
 
   </tr>{% endfor %}
    </tbody>

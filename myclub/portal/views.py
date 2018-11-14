@@ -87,7 +87,7 @@ def view_my_posts(request):
 
 @login_required
 def view_red_zone(request):
-    U= User.objects.all().filter(project__deadline__lte=datetime.now().date())
+    U= User.objects.all().filter(project__deadline__lte=datetime.now().date()).distinct()
     # for u in U:
     #     u.member.pending_status=True
 
