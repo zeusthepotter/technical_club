@@ -19,13 +19,15 @@ Your account has not been authenticated yet!
 
 
 
-<table>
+
   {% for p in posts %}
+  <div >
+      <table>
   <tr style="height: 150px">
     <td style="padding-right: 20px">
     <img style="height:80px;" class="rounded-circle " src="{{ p.author.member.image_url }}">
   </td>
-  <td>
+  <td  class = 'speech-bubble'>
     <strong>{{ p.author.member.name }}</strong> <span class="text-muted">posted {{ p.created_date|timesince  }} ago</span>
   
     <h4> {{ p.title }}</h4>
@@ -36,8 +38,11 @@ Your account has not been authenticated yet!
   
   
   </tr>
-  {% endfor %}
 </table>
+</div>
+<br>
+  {% endfor %}
+
 
 {% endif %}
 

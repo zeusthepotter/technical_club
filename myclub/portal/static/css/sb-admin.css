@@ -385,3 +385,25 @@ body.sidebar-toggled footer.sticky-footer {
   background-color: #da7c11;
   color: #fff;
 }
+
+.speech-bubble {
+	position: relative;
+	background: #ebeafd;
+  border-radius: 1em;
+  padding: 30px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 19px solid transparent;
+	border-right-color: #ebeafd;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -9.5px;
+	margin-left: -19px;
+}
