@@ -28,9 +28,9 @@ Your account has not been authenticated yet!
       <a href='/portal/profile/{{ p.author.member.roll }}/'> <img style="height:80px;" class="rounded-circle " src="{{ p.author.member.image_url }}"> </a>
   </td>
   <td  class = 'speech-bubble'>
-    <a href='/portal/profile/{{ p.author.member.roll }}/'><strong style="color: #0062cc">{{ p.author.member.name }}</strong></a> <span class="text-muted">posted {{ p.created_date|timesince  }} ago</span>
+    <a href='/portal/profile/{{ p.author.member.roll }}/'><strong style="color: #0062cc">{{ p.author.member.name }}</strong></a> <span class="text-muted">posted {{ p.created_date|timesince  }} ago. (<a href="/portal/project/{{ p.project.pk }}/">{{ p.project.title }}</a>)</span>
   
-    <h4> {{ p.title }}</h4>
+    <h5> {{ p.title }}   </h4>
     {{ p.text }}
     
   </td>

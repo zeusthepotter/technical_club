@@ -65,6 +65,13 @@ def view_profile(request,pk):
 
 
 @login_required
+def view_project(request,pk):
+        
+    p = get_object_or_404(Project, pk=pk)
+    return render(request, 'portal/project.html', context = {'p': p } )
+
+
+@login_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -112,6 +119,13 @@ def view_activity(request):
 def view_projects(request):
     p = Project.objects.order_by("deadline")
     return render(request, 'portal/projects.html', {'projects':p})
+
+
+
+@login_required
+def view_my_projects(request):
+    p = Project.objects.filter(worker=request.user).order_by("deadline")
+    return render(request, 'portal/my_projects.html', {'projects':p})
 
 
 
