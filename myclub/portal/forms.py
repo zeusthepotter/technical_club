@@ -7,6 +7,10 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('title', 'text', 'project')
+    
+    def __init__(self, user, *args, **kwargs):
+        super(PostForm, self).__init__(*args, **kwargs)
+        self.fields['project'].queryset = Project.objects.filter(worker=user)
 
 
 class ProjectForm(forms.ModelForm):

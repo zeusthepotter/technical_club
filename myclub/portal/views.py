@@ -15,23 +15,14 @@ def index(request):
 @login_required
 def profile(request):
     
-    if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
-            post.save()
-            return redirect('profile')
-    else:
-        form = PostForm()
     
-    return render(request, 'portal/profile.html', context = {'member': request.user.member, 'form':form, 'posts': Post.objects.filter(author=request.user) } )
+    
+    return render(request, 'portal/profile.html', context = {'member': request.user.member, 'posts': Post.objects.filter(author=request.user) } )
 
 @login_required
 def add_post(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.user, request.POST)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -39,7 +30,7 @@ def add_post(request):
             post.save()
             return redirect('profile')
     else:
-        form = PostForm()
+        form = PostForm(request.user)
     
     return render(request, 'portal/add_post.html', context = {'member': request.user.member, 'form':form } )
 
@@ -112,6 +103,12 @@ def view_members(request):
 def view_activity(request):
     posts = Post.objects.order_by("-published_date")
     return render(request, 'portal/activity.html', {'posts':posts})
+
+
+@login_required
+def view_my_activity(request):
+    posts = Post.objects.filter(author=request.user).order_by("-published_date")
+    return render(request, 'portal/my_activity.html', {'posts':posts})
 
 
 

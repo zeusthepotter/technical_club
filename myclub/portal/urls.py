@@ -12,6 +12,7 @@ urlpatterns = [
     path('add_post/', views.add_post,name = 'add_post'),
     path('members/', views.view_members,name = 'view_members'),
     path('activity/', views.view_activity,name = 'view_activity'),
+    path('my_activity/', views.view_my_activity,name = 'view_my_activity'),
     path('register_user/', views.register_user,name = 'register_user'),
     path('authenticate_pending_users/', views.authenticate_pending_users,name = 'authenticate_pending_users'),
     path('reg_successful/', views.reg_successful,name = 'reg_successful'),

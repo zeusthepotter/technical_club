@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if request.user.member.pending_status == True %}
+
+
+Your account has not been authenticated yet!
+
+
+
+
+
+
+{% else %}
+
+
+
+
+<h2 style="font-family: 'Courgette', cursive; ">My Activity log</h2><br>
+
+  {% for p in posts %}
+  <div >
+      <table>
+  <tr style="height: 150px">
+    <td style="padding-right: 20px">
+      <a href='/portal/profile/{{ p.author.member.roll }}/'> <img style="height:80px;" class="rounded-circle " src="{{ p.author.member.image_url }}"> </a>
+  </td>
+  <td  class = 'speech-bubble'>
+    <a href='/portal/profile/{{ p.author.member.roll }}/'><strong style="color: #0062cc">{{ p.author.member.name }}</strong></a> <span class="text-muted">posted {{ p.created_date|timesince  }} ago. (<a href="/portal/project/{{ p.project.pk }}/">{{ p.project.title }}</a>)</span>
+  
+    <h5> {{ p.title }}   </h4>
+    {{ p.text }}
+    
+  </td>
+  
+  
+  
+  </tr>
+</table>
+</div>
+<br>
+  {% endfor %}
+
+
+{% endif %}
+
+
+{% endblock %}
