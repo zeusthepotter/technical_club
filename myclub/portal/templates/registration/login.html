@@ -91,7 +91,83 @@
     <div id="wrapper">
 
       <!-- Sidebar -->
-      
+      {% if request.user.is_authenticated %}
+
+      <ul class="sidebar navbar-nav">
+        
+        
+        
+        {% if request.user.is_superuser %}
+
+        <li class="nav-item">
+          <a class="nav-link" href="/portal/authenticate_pending_users/"> <span>Authenticate </span> </a>
+        </li>
+
+        {% endif %}
+
+        {% if request.user.is_authenticated %}
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/portal/profile/"> <span> My Profile </span> </a>
+        </li>
+
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/portal/members/"> <span> Club Members </span> </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Activity</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="/portal/activity">All Activity </span></a>
+            <a class="dropdown-item"  href="/portal/my_activity">My Activity</a>
+                       
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Projects</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="/portal/projects">All Projects </span></a>
+            <a class="dropdown-item"  href="/portal/my_projects">My Projects</a>
+            <a class="dropdown-item" href="/portal/create_project">Add Project</a>
+            
+          </div>
+        </li>
+
+
+
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/portal/red_zone"> <span>Red Zone </span> </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/portal/chat" target="_blank"> <span>Chat </span> </a>
+      </li>
+
+        
+        
+        {% endif %}
+
+        
+      </ul>
+
+      {% endif %}
 
       <div id="content-wrapper">
 
@@ -123,15 +199,16 @@ please login with an account that has access.</p>
 {% if user.is_authenticated %}
 
 
-<h4>Welcome to RECK Technical Club's Portal!
-</h4>
-{% else %}
+<strong>You are logged in as {{ request.user.member.name}} </strong>
+
+
+{% endif %}
 
 
   
     
 
-  
+     <div>  
      <div class="card-header"><h4>Log In</h4></div>
      <div class="card-body">
         
@@ -165,7 +242,7 @@ please login with an account that has access.</p>
          
        </form>
         
-
+       </div>
 
          
       
@@ -175,7 +252,7 @@ please login with an account that has access.</p>
 
 
 
-{% endif %}
+
 
 
 
