@@ -11,7 +11,7 @@ class Member(models.Model):
     password = models.CharField(max_length=30,null = True,blank=True)
     contact_no = models.CharField(max_length=10)
     email=models.EmailField(max_length=70)
-    branch = models.CharField(max_length=30, choices = ( ('CSE','CSE'), ('CE','CE'), ('EL','EL'), ('EE','EE')  )    ,null = True,blank=True)
+    branch = models.CharField(max_length=30, choices = ( ('CSE','CSE'), ('CE','CE'), ('EL','EL'), ('EE','EE')  )  ,null = True,blank=True)
     year = models.CharField(max_length=30, choices = ( ('First Year','First Year'), ('Second Year','Second Year'), ('Third Year','Third Year'), ('Fourth Year','Fourth Year')  ) ,null = True,blank=True)
     profile_picture = models.ImageField(blank=True, null=True)
     role = models.CharField(max_length=30, choices = ( ('Volunteer','Volunteer'), ('Coordinator','Coordinator'), ('Assistant Coordinator','Assistant Coordinator') ) ,null = True,blank=True)
