@@ -366,6 +366,8 @@ footer.sticky-footer .copyright {
 
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
+  transition: .3s;
+  transition-timing-function: ease-in-out;
 }
 
 @media (min-width: 768px) {
@@ -412,4 +414,9 @@ body.sidebar-toggled footer.sticky-footer {
   #mobile{
     display: none;
   }
+}
+
+.navbar-nav{
+  transition: .3s;
+  transition-timing-function: ease-in-out;
 }
