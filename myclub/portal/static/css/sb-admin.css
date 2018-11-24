@@ -407,3 +407,9 @@ body.sidebar-toggled footer.sticky-footer {
 	margin-top: -9.5px;
 	margin-left: -19px;
 }
+
+@media screen and (max-width: 600px) {
+  #mobile{
+    display: none;
+  }
+}
