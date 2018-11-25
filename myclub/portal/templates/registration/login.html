@@ -35,7 +35,9 @@
 
       <a class="navbar-brand mr-1" href="/accounts/login/">Portal</a>
 
-     
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+        <i class="fas fa-bars"></i>
+      </button>
 
       <!-- Navbar Search -->
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -203,29 +205,29 @@ please login with an account that has access.</p>
     
 
      <div>  
-     <div class="card-header" style="text-align: center; margin: auto;display:block; width:310px;background-color: rgba(0, 0, 0, 0.06);"><h4>Log In</h4></div>
-     <div class="card-body" style="text-align: center; margin: auto;display:block; width:310px;">
+     <div class="card-header"><h4>Log In</h4></div>
+     <div class="card-body">
         
        <form method="post" action="{% url 'login' %}">
           {% csrf_token %}
           
-         <div class="form-group" style="text-align: center;">
+         <div class="form-group">
            <div class="form-label-group">
              {{form.username}}
-             <label for="inputEmail">Roll Number</label>
+             <label for="inputEmail">Username (Your roll number)</label>
            </div>
          </div>
          <div class="form-group" style="margin-bottom: 40px;">
-           <div class="form-label-group" style="text-align: center;">
+           <div class="form-label-group">
              {{ form.password }}
              <label for="inputPassword">Password</label>
            </div>
          </div>
          
-         <input class="btn btn-primary btn-block" style="background:#1dbd1d;width:310px; border-color: #1dbd1d" type="Submit" name="" value="Log In"><br>
+         <input class="btn btn-primary btn-block" style="background:#1dbd1d;width:250px;" type="Submit" name="" value="Log In"><br>
          <input type="hidden" name="next" value="{{ next }}">
          
-         <a class="btn btn-primary btn-block" style="width:310px;" href="/portal/register_user">Register Account</a>
+         <a class="btn btn-primary btn-block" style="width:250px;" href="/portal/register_user">Register Account</a>
          
        </form>
         
