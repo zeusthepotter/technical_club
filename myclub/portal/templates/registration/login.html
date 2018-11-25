@@ -194,7 +194,8 @@ please login with an account that has access.</p>
 {% if user.is_authenticated %}
 
 
-<strong>You are logged in as {{ request.user.member.name}} </strong>
+<strong style="color:rgb(14, 182, 14)">You are logged in as {{ request.user.member.name}}. </strong><br>
+<br>
 
 
 {% endif %}
@@ -216,23 +217,16 @@ please login with an account that has access.</p>
              <label for="inputEmail">Username (Your roll number)</label>
            </div>
          </div>
-         <div class="form-group">
+         <div class="form-group" style="margin-bottom: 40px;">
            <div class="form-label-group">
              {{ form.password }}
              <label for="inputPassword">Password</label>
            </div>
          </div>
-         <div class="form-group">
-           <div class="checkbox">
-             <label>
-               <input type="checkbox" value="remember-me">
-               Remember Password
-             </label>
-           </div>
-         </div>
-         <input class="btn" style="background:#1dbd1d;color:white;border-radius:20px;width:250px;margin:auto;" type="Submit" name="" value="Log In"><br>
+         
+         <input class="btn btn-primary btn-block" style="background:#1dbd1d;width:250px;" type="Submit" name="" value="Log In"><br>
          <input type="hidden" name="next" value="{{ next }}">
-         <br>
+         
          <a class="btn btn-primary btn-block" style="width:250px;" href="/portal/register_user">Register Account</a>
          
        </form>
