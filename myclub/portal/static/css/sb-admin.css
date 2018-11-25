@@ -390,7 +390,7 @@ body.sidebar-toggled footer.sticky-footer {
 
 .speech-bubble {
 	position: relative;
-	background-image: linear-gradient(to bottom right, #ffc1079c, #ffc10700);
+	background-image: linear-gradient(to bottom right, #dee2e6, #e9ecef17);
   border-radius: 1em;
   padding: 30px;
 }
