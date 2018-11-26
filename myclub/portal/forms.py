@@ -17,7 +17,7 @@ class ProjectForm(forms.ModelForm):
    
     class Meta:
         model = Project
-        fields = ('title', 'description','worker','deadline')
+        fields = ('title', 'description','worker','deadline','finished')
 
         labels = {
             'worker': 'Members'
