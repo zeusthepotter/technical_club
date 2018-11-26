@@ -3,20 +3,45 @@
 
 <center>
 <div class="row">
-    <div class="col col-6 mx-auto " style="background:white;color:black;">
-		<br/>
-<img class="img-rounded img-thumbnail mx-auto" alt="Responsive image" src="{{ member.image_url }}" style="height:250px;width:280px;border-radius:50%;" >
-
-<br/><hr/><h1>{{ member.name }}</h1>
-        {{ member.role }}<br/>
-        {{ member.team }}<br/>
-        {{ member.branch }} &nbsp {{ member.year }}<br/><hr/>
-        <div class="row"><div class="col ">Roll No.</div><div class="col">{{ member.roll }}</div></div>
-        <div class="row"><div class="col ">Phone</div><div class="col">{{ member.contact_no }}</div></div>
-        <div class="row"><div class="col ">Email</div><div class="col">{{ member.email }}</div></div>
-
-<br/></div>
-
+                <div class="col col-6 mx-auto " style="background:white;color:black;//line-height:90%;">
+                        <br/>
+        <img class="rounded-circle img-thumbnail" alt="Responsive image" src="{{ member.image_url }}" style="height:180px;width:210px;" >
+        
+        <br/>
+                <div style="background:#FBFCFC;"><hr/>
+                        <div class="profile-detail-name">
+                                {{ member.name }}
+                        </div>
+                        <div class="profile-detail-role">
+                                {{ member.role }} - {{ member.team }}
+                        </div>
+                        <div class="profile-detail-contact">
+                                <i class="fas fa-phone"></i>&nbsp;{{ member.contact_no }}<br>
+                                <i class="fas fa-envelope"></i>&nbsp;{{ member.email }}
+        
+                        </div>
+                <br><hr/></div>
+                
+                <div class="profile-detail-branch">
+                        <div style="margin:auto;display:block;width:190px;">
+                        <table>
+                                <tr>
+                                        <td>Roll No.</td>
+                                        <td>{{ member.roll }}</td>
+                                </tr>
+                                <tr>
+                                        <td>Branch</td>
+                                        <td>{{ member.branch }}</td>
+                                </tr>
+                                <tr>
+                                        <td>Year</td>
+                                        <td>{{ member.year }}</td>
+                                </tr>
+                        </table>
+                </div>
+                </div>
+        
+        <br/></div>
 </div>
  </center>
 
