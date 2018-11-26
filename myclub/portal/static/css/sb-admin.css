@@ -309,8 +309,8 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
   color: #495057;
   border: 1px solid transparent;
   border-radius: 0.25rem;
-  -webkit-transition: all 0.1s ease-out;
-  transition: all 0.1s ease-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .form-label-group input::-webkit-input-placeholder {
@@ -366,8 +366,8 @@ footer.sticky-footer .copyright {
 
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
-  transition: .4s;
-  transition-timing-function: ease-out;
+  transition: .3s;
+  transition-timing-function: ease-in-out;
 }
 
 @media (min-width: 768px) {
@@ -417,8 +417,8 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .navbar-nav{
-  transition: .4s;
-  transition-timing-function: ease-out;
+  transition: .3s;
+  transition-timing-function: ease-in-out;
 }
 
 
