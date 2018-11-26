@@ -19,28 +19,51 @@ Your account has not been authenticated yet!
 <div class="row">
     <div class="col col-lg-4 col-md-4 col-sm-12 mr-auto " style="background:white;color:black;//line-height:90%;">
 		<br/>
-<img class="rounded-circle img-thumbnail" alt="Responsive image" src="{{ member.image_url }}" style="height:200px;width:230px;" >
+<img class="rounded-circle img-thumbnail" alt="Responsive image" src="{{ member.image_url }}" style="height:180px;width:210px;" >
 
 <br/>
         <div style="background:#FBFCFC;"><hr/>
-        <h1>{{ member.name }}</h1>
-        {{ member.role }}<br/>
-        {{ member.team }}<br/>
-        {{ member.branch }} &nbsp {{ member.year }}<br/><hr/></div>
+                <div class="profile-detail-name">
+                        {{ member.name }}
+                </div>
+                <div class="profile-detail-role">
+                        {{ member.role }} - {{ member.team }}
+                </div>
+                <div class="profile-detail-contact">
+                        <i class="fas fa-phone"></i>&nbsp;{{ member.contact_no }}<br>
+                        <i class="fas fa-envelope"></i>&nbsp;{{ member.email }}
+
+                </div>
+        <br><hr/></div>
         
-        <div class="row"><div class="col ">Roll No.</div><div class="col">{{ member.roll }}</div></div>
-        <div class="row"><div class="col ">Phone</div><div class="col">{{ member.contact_no }}</div></div>
-        <div class="row"><div class="col ">Email</div><div class="col">{{ member.email }}</div></div>
+        <div class="profile-detail-branch">
+                <div style="margin:auto;display:block;width:190px;">
+                <table>
+                        <tr>
+                                <td>Roll No.</td>
+                                <td>{{ member.roll }}</td>
+                        </tr>
+                        <tr>
+                                <td>Branch</td>
+                                <td>{{ member.branch }}</td>
+                        </tr>
+                        <tr>
+                                <td>Year</td>
+                                <td>{{ member.year }}</td>
+                        </tr>
+                </table>
+        </div>
+        </div>
 
 <br/></div>
  <div id="mobile" class="col col-lg-8 col-md-8 col-sm-12 mr-auto " style="background:#FBFCFC;color:black;border-left:1px solid lightgrey;overflow-y:scroll;">
-<h2 style="text-align:left;margin-top:30px;margin-left:10px;font-family: 'Courgette', cursive;">My Activity<hr/></h2>
+<p style="font-size: 30px; text-align:center;margin-top:30px;margin-left:10px;color: #1e6af3;">My Activity<hr/></p>
 
-<table>
-        <col width="130">
-        <col width="480">
+<table style="width: 100%; margin: auto">
+        <col width="150">
+        <col width="460">
 
-        <tr style="height:60px">
+        <tr style="height:50px">
                 <td><b> Title </b></td>
                 <td><b>Description</b></td>
 
@@ -57,7 +80,7 @@ Your account has not been authenticated yet!
         {% endfor %}
 
 </table>
-<div class="row" style="margin-top:30%;"><div class="col">
+<div class="row" style="margin-top:30%;margin-left: 70%;"><div class="col">
      <a class="btn btn-primary btn-block" style="width:150px;" href="/portal/add_post" >+ Add New Post</a><br/>
 </div></div>
 </div>
