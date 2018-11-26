@@ -25,6 +25,7 @@ Your account has not been authenticated yet!
       <th scope="col">Title</th>
       <th scope="col">Description</th>
       <th scope="col">Deadline</th>
+      <th scope="col">Finished</th>
       <th scope="col">Members</th>
      </tr>
   </thead>
@@ -35,6 +36,7 @@ Your account has not been authenticated yet!
       <td scope="row"><a href="/portal/project/{{ p.pk }}/">  {{ p.title }}  </a></td>
       <td scope="row">{{ p.description }}</td>
       <td scope="row">{{ p.deadline }}</td>
+      <td scope="row">{{ p.finished }}</td>
       <td scope="row">{% for x in p.worker.all %}<a href="/portal/profile/{{ x.member.roll }}">{{ x.member.name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</td>
 
   </tr>{% endfor %}

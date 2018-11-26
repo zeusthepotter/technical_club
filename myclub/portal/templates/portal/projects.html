@@ -25,6 +25,7 @@ Your account has not been authenticated yet!
       <th scope="col">Title</th>
       <th scope="col">Description</th>
       <th scope="col">Deadline</th>
+      <th scope="col">Finished</th>
       
      </tr>
   </thead>
@@ -35,6 +36,7 @@ Your account has not been authenticated yet!
       <td scope="row"><a href="/portal/project/{{ p.pk }}/">  {{ p.title }}  </a></td>
       <td scope="row">{{ p.description }}</td>
       <td scope="row">{{ p.deadline }}</td>
+      <td scope="row">{{ p.finished }}</td>
       
 
   </tr>{% endfor %}
