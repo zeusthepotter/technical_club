@@ -420,3 +420,45 @@ body.sidebar-toggled footer.sticky-footer {
   transition: .3s;
   transition-timing-function: ease-in-out;
 }
+
+
+.profile-details{
+	width: 100%;
+	padding: 10px 5px;
+}
+.profile-detail-name{
+	text-align: center;
+	font-size: 30px;
+	color: cornflowerblue;
+	padding: 10px 0px 10px 0px;
+}
+.profile-detail-role{
+	color: #666;
+	text-align:center;
+	padding: 0px 0px 2px 0px;
+	font-size: 20px;
+	
+}
+.profile-detail-contact{
+	color:#138D94;
+	text-align:center;
+	padding: 0px 0px;
+}
+.profile-detail-branch{
+	margin-top: 50px;
+	color:#444;
+	text-align:left;
+	padding: 0px 0px;
+	
+}
+.profile-detail-branch table tr td{
+	padding: 5px 2px;
+}
+.profile-detail-branch table tr td:nth-child(1){
+	color: #222;
+	width: 120px;
+}
+
+.profile-detail-branch table tr td:nth-child(2){
+	color:#138D94;
+}
