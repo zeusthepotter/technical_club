@@ -177,6 +177,7 @@ def register_user(request):
             p.password=''
             p.save()
             
+
             return HttpResponseRedirect('/portal/reg_successful') 
 
     else:
