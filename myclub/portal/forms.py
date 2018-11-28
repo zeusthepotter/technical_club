@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Post, Member, Project
+from .models import Post, Member, Project, Announcement
 
 class PostForm(forms.ModelForm):
 
@@ -11,6 +11,17 @@ class PostForm(forms.ModelForm):
     def __init__(self, user, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
         self.fields['project'].queryset = Project.objects.filter(worker=user)
+
+class AnnouncementForm(forms.ModelForm):
+
+    class Meta:
+        model = Announcement
+        fields = ('title', 'text')
+    
+    def __init__(self, user, *args, **kwargs):
+        super(AnnouncementForm, self).__init__(*args, **kwargs)
+        
+
 
 
 class ProjectForm(forms.ModelForm):

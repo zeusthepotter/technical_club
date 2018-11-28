@@ -463,3 +463,12 @@ body.sidebar-toggled footer.sticky-footer {
 .profile-detail-branch table tr td:nth-child(2){
 	color:#138D94;
 }
+
+
+.post-form input {
+  width: 100%;
+}
+
+.post-form textarea {
+  width: 100%;
+}

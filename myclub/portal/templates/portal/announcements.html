@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if request.user.member.pending_status == True %}
+
+
+Your account has not been authenticated yet!
+
+
+
+
+
+
+{% else %}
+
+
+
+
+
+
+  {% for a in announcements %}
+  <div >
+      <table>
+  <tr style="height: 150px">
+    <td style="padding-right: 20px">
+      <a href='/portal/profile/{{ a.author.member.roll }}/'> <img style="height:100px;width:130px;" class="rounded-circle " src="{{ a.author.member.image_url }}"> </a>
+  </td>
+  <td  class = 'speech-bubble' style="background-image: linear-gradient(to bottom right, #ffc107bf, #ffc1075e);">
+    <a href='/portal/profile/{{ a.author.member.roll }}/'><strong style="color: #0062cc">{{ a.author.member.name }}</strong></a> <span class="text-muted">posted {{ a.created_date|timesince  }} ago. (<a href="/portal/project/{{ a.project.pk }}/">{{ a.project.title }}</a>)</span>
+  
+    <h5> {{ a.title }}   </h4>
+    {{ a.text }}
+    
+  </td>
+  
+  
+  
+  </tr>
+</table>
+</div>
+<br>
+  {% endfor %}
+
+
+{% endif %}
+
+
+{% endblock %}

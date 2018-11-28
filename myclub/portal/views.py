@@ -1,13 +1,16 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 from django.contrib.auth.models import User
-from .forms import PostForm, UserForm, ProjectForm
+from .forms import PostForm, UserForm, ProjectForm, AnnouncementForm
 from django.shortcuts import redirect, get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
+from django.core.mail import send_mass_mail
+
+
 
 def change_password(request):
     if request.method == 'POST':
@@ -53,6 +56,26 @@ def add_post(request):
         form = PostForm(request.user)
     
     return render(request, 'portal/add_post.html', context = {'member': request.user.member, 'form':form } )
+
+@login_required
+def make_announcement(request):
+    if request.method == "POST":
+        form = AnnouncementForm(request.user, request.POST)
+        if form.is_valid():
+            announcement = form.save(commit=False)
+            announcement.author = request.user
+            announcement.published_date = timezone.now()
+            announcement.save()
+            email_recipients = [str(m.email) for m in Member.objects.all()]
+            message = ('Technical Club RECK - ' + announcement.title, announcement.text, 'botdummy46@gmail.com',email_recipients)
+            send_mass_mail((message,message), fail_silently=True)
+
+            return redirect('view_announcements')
+    else:
+        form = AnnouncementForm(request.user)
+    
+    return render(request, 'portal/make_announcement.html', context = {'member': request.user.member, 'form':form } )
+
 
 @login_required
 def create_project(request):
@@ -113,6 +136,11 @@ def view_members(request):
 def view_activity(request):
     posts = Post.objects.order_by("-published_date")
     return render(request, 'portal/activity.html', {'posts':posts})
+
+@login_required
+def view_announcements(request):
+    announcements = Announcement.objects.order_by("-published_date")
+    return render(request, 'portal/announcements.html', {'announcements':announcements})
 
 
 @login_required
