@@ -8,7 +8,7 @@ from datetime import datetime
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
-from django.core.mail import send_mass_mail
+from django.core.mail import send_mass_mail, send_mail
 
 
 
@@ -68,7 +68,7 @@ def make_announcement(request):
             announcement.save()
             email_recipients = [str(m.email) for m in Member.objects.all()]
             message = ('Technical Club RECK - ' + announcement.title, announcement.text, 'botdummy46@gmail.com',email_recipients)
-            send_mass_mail((message,message), fail_silently=True)
+            send_mass_mail((message,), fail_silently=True)
 
             return redirect('view_announcements')
     else:
