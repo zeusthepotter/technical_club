@@ -66,7 +66,8 @@ def make_announcement(request):
             announcement.author = request.user
             announcement.published_date = timezone.now()
             announcement.save()
-            email_recipients = [str(m.email) for m in Member.objects.all()]
+            email_recipients = [str(m.email) for m in Member.objects.all() if m.user.is_superuser]
+            print(email_recipients)
             message = ('Technical Club RECK - ' + announcement.title, announcement.text, 'botdummy46@gmail.com',email_recipients)
             send_mass_mail((message,), fail_silently=True)
 
