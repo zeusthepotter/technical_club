@@ -35,7 +35,7 @@ class Project(models.Model):
     title =  models.CharField(max_length=100)
     description =  models.CharField(max_length=500)
     deadline = models.DateField()
-    finished = models.CharField(max_length=30, choices = ( ('Yes','Yes'), ('No','No') ) ,null = True,blank=True)
+    finished = models.CharField(max_length=30, choices = ( ('Yes','Yes'), ('No','No') ) ,default='No',null = True,blank=True)
 
     def __str__(self):
         return self.title

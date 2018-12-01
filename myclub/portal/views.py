@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.core.mail import send_mass_mail, send_mail
+from django.views.generic.edit import UpdateView
 
 
 
@@ -90,6 +91,24 @@ def create_project(request):
         form = ProjectForm()
         
     return render(request, 'portal/create_project.html', context = {'member': request.user.member, 'form':form } )
+
+
+# @login_required
+# def update_project(request):
+#     if request.method == "POST":
+#         form = ProjectForm(request.POST)
+#         if form.is_valid():
+#             project = form.save()
+#
+#             return redirect('view-project')
+#     else:
+#         form = ProjectForm()
+#
+#     return render(request, 'portal/update_project.html', context={'member': request.user.member, 'form': form})
+# class updateProject(UpdateView):
+#     model = Project
+#     fields = ['worker','deadline','finished']
+#     template_name = 'portal/update_project.html'
 
 
 @login_required
