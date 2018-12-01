@@ -11,6 +11,8 @@ html {
 
 body {
   max-height: 120vh;
+  //font-family: 'Text Me One', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 #wrapper {
@@ -440,7 +442,7 @@ body.sidebar-toggled footer.sticky-footer {
 	
 }
 .profile-detail-contact{
-	color:#138D94;
+	color:black;//#138D94;
 	text-align:center;
 	padding: 0px 0px;
 }
