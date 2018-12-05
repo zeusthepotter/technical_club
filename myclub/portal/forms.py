@@ -66,3 +66,10 @@ class UserForm(forms.ModelForm):
             raise forms.ValidationError(
                 "Please upload your profile picture!"
             )
+        else:
+            if image.size>300*1024:
+                raise forms.ValidationError(
+                "The size of your profile picture must not exceed 300 KB!"
+            )
+
+        
