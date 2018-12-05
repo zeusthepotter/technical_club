@@ -14,9 +14,14 @@ class PostForm(forms.ModelForm):
 
 class AnnouncementForm(forms.ModelForm):
 
+    recipients = forms.ChoiceField(widget=forms.Select() , choices = ( ('All members','All members'), ('Assistant Coordinators','Assistant Coordinators'), ('Admins','Admins')) )
+
+
     class Meta:
         model = Announcement
-        fields = ('title', 'text')
+        fields = ('title', 'text','recipients')
+
+
     
     def __init__(self, user, *args, **kwargs):
         super(AnnouncementForm, self).__init__(*args, **kwargs)
