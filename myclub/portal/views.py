@@ -78,7 +78,7 @@ def make_announcement(request):
 
             
 
-            message = ('Technical Club RECK - ' + announcement.title, announcement.text, 'botdummy46@gmail.com',email_recipients)
+            message = ('Technical Club RECK - ' + announcement.title, announcement.text, 'Technical Club RECK',email_recipients)
             send_mass_mail((message,), fail_silently=True)
 
             return redirect('view_announcements')
@@ -205,7 +205,9 @@ def register_user(request):
             p.user = user
             p.password=''
             p.save()
-            
+            email_recipients = [str(m.email) for m in Member.objects.all() if m.user.is_superuser]
+            message = ('Technical Club RECK - ', p.name + ' just registered on the portal.',  'Technical Club RECK',email_recipients)
+            send_mass_mail((message,), fail_silently=True)
 
             return HttpResponseRedirect('/portal/reg_successful') 
 
@@ -235,5 +237,6 @@ def authenticate_pending_users(request):
         m= Member.objects.get(pk=request.POST.get('choice'))
         m.pending_status=False
         m.save()
+        send_mail('Technical Club RECK', 'Your account on the portal has been authenticated.', 'Technical Club RECK', [str(m.email)], fail_silently=False,)
     
     return render(request, 'portal/authenticate_pending_users.html',{ 'P': P } )
