@@ -13,7 +13,7 @@
                                 {{ member.name }}
                         </div>
                         <div class="profile-detail-role">
-                                {{ member.role }} - {{ member.team }}
+                                {{ member.role }} {% if member.role != "Faculty" %} - {{ member.team }} {% endif %}
                         </div>
                         <div class="profile-detail-contact">
                                 <i class="fas fa-phone"></i>&nbsp;{{ member.contact_no }}<br>
@@ -21,7 +21,7 @@
         
                         </div>
                 <br><hr/></div>
-                
+                {% if member.role != "Faculty" %}
                 <div class="profile-detail-branch">
                         <div style="margin:auto;display:block;width:190px;">
                         <table>
@@ -38,9 +38,9 @@
                                         <td>{{ member.year }}</td>
                                 </tr>
                         </table>
+                </div> 
                 </div>
-                </div>
-        
+                {% endif %}
         <br/></div>
 </div>
  </center>
