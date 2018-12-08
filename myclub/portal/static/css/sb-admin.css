@@ -440,6 +440,15 @@ body.sidebar-toggled footer.sticky-footer {
   }
 }
 
+@media screen and (min-width: 600px) {
+  #pc{
+    display: none;
+    
+  }
+}
+
+
+
 .navbar-nav{
   transition: .3s;
   transition-timing-function: ease-in-out;

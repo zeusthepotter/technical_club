@@ -22,7 +22,7 @@ Your account has not been authenticated yet!
 <span style="font-size: 30px ">Announcements</span><br><br>
 
   {% for a in announcements %}
-  <div >
+  <div id="mobile">
       <table>
   <tr style="height: 150px">
     <td style="padding-right: 20px">
@@ -31,7 +31,7 @@ Your account has not been authenticated yet!
   <td  class = "speech-bubble-announcement" >
     <a href='/portal/profile/{{ a.author.member.roll }}/'><strong style="color: #0062cc">{{ a.author.member.name }}</strong></a> <span class="text-muted">posted {{ a.created_date|timesince  }} ago </span>
   
-    <h5> {{ a.title }}   </h4>
+    <h5> {{ a.title }}   </h5>
     {{ a.text }}
     
   </td>
@@ -39,6 +39,26 @@ Your account has not been authenticated yet!
   
   
   </tr>
+</table>
+</div>
+
+<div id="pc">
+  <table>
+<tr>
+<td style="padding-right: 10px">
+  <a href='/portal/profile/{{ a.author.member.roll }}/'> <img style="height:40px;width:53px;" class="rounded-circle " src="{{ a.author.member.image_url }}"> </a>
+</td>
+<td  class = 'speech-bubble-announcement' style="padding: 10px">
+  <span style="font-size: 10px;"><a href='/portal/profile/{{ a.author.member.roll }}/'><strong style="color: #0062cc">{{ p.author.member.name }}</strong></a> <span class="text-muted">posted {{ p.created_date|timesince  }} ago </span>
+</span>
+<span style="font-size: 12px;"> {{ a.title }}   </span>
+<p style="font-size: 10px;">{{ a.text }} </p>
+
+</td>
+
+
+
+</tr>
 </table>
 </div>
 <br>
