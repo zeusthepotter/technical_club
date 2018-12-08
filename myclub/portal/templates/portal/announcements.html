@@ -49,10 +49,10 @@ Your account has not been authenticated yet!
   <a href='/portal/profile/{{ a.author.member.roll }}/'> <img style="height:40px;width:53px;" class="rounded-circle " src="{{ a.author.member.image_url }}"> </a>
 </td>
 <td  class = 'speech-bubble-announcement' style="padding: 10px">
-  <span style="font-size: 10px;"><a href='/portal/profile/{{ a.author.member.roll }}/'><strong style="color: #0062cc">{{ a.author.member.name }}</strong></a> <span class="text-muted">posted {{ a.created_date|timesince  }} ago </span>
+  <span style="font-size: 15px;"><a href='/portal/profile/{{ a.author.member.roll }}/'><strong style="color: #0062cc">{{ a.author.member.name }}</strong></a> <span class="text-muted">posted {{ a.created_date|timesince  }} ago </span>
 </span><br>
-<span style="font-size: 12px;"> {{ a.title }}   </span>
-<p style="font-size: 10px;">{{ a.text }} </p>
+<strong style="font-size: 17px;"> {{ a.title }}   </strong>
+<p style="font-size: 15px;">{{ a.text }} </p>
 
 </td>
 
