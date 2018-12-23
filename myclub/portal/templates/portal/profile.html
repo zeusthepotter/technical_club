@@ -27,15 +27,15 @@ Your account has not been authenticated yet!
                         {{ member.name }}
                 </div>
                 <div class="profile-detail-role">
-                        {{ member.role }} <br/> {{ member.team }}
+                        {{ member.role }} {% if member.role != "Faculty" %} - {{ member.team }} {% endif %}
                 </div>
                 <div class="profile-detail-contact">
-                        <i class="fas fa-phone" ></i>&nbsp;{{ member.contact_no }}<br>
-                        <i class="fas fa-envelope" ></i>&nbsp;{{ member.email }}
+                        <i class="fas fa-phone"></i>&nbsp;{{ member.contact_no }}<br>
+                        <i class="fas fa-envelope"></i>&nbsp;{{ member.email }}
 
                 </div>
         <br><hr/></div>
-        
+        {% if member.role != "Faculty" %}
         <div class="profile-detail-branch">
                 <div style="margin:auto;display:block;width:190px;">
                 <table>
@@ -52,8 +52,9 @@ Your account has not been authenticated yet!
                                 <td>{{ member.year }}</td>
                         </tr>
                 </table>
+        </div> 
         </div>
-        </div>
+        {% endif %}
 
 <br/></div>
  <div id="mobile" class="col col-lg-8 col-md-8 col-sm-12 mr-auto " style="background:#FBFCFC;color:black;border-left:1px solid lightgrey;overflow-y:scroll;">

@@ -14,9 +14,14 @@ class PostForm(forms.ModelForm):
 
 class AnnouncementForm(forms.ModelForm):
 
+    recipients = forms.ChoiceField(widget=forms.Select() , choices = ( ('All members','All members'), ('Assistant Coordinators','Assistant Coordinators'), ('Admins','Admins')) )
+
+
     class Meta:
         model = Announcement
-        fields = ('title', 'text')
+        fields = ('title', 'text','recipients')
+
+
     
     def __init__(self, user, *args, **kwargs):
         super(AnnouncementForm, self).__init__(*args, **kwargs)
@@ -61,3 +66,10 @@ class UserForm(forms.ModelForm):
             raise forms.ValidationError(
                 "Please upload your profile picture!"
             )
+        else:
+            if image.size>300*1024:
+                raise forms.ValidationError(
+                "The size of your profile picture must not exceed 300 KB!"
+            )
+
+        

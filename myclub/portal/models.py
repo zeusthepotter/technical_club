@@ -14,7 +14,7 @@ class Member(models.Model):
     branch = models.CharField(max_length=30, choices = ( ('CSE','CSE'), ('CE','CE'), ('EL','EL'), ('EE','EE')  )  ,null = True,blank=True)
     year = models.CharField(max_length=30, choices = ( ('First Year','First Year'), ('Second Year','Second Year'), ('Third Year','Third Year'), ('Fourth Year','Fourth Year')  ) ,null = True,blank=True)
     profile_picture = models.ImageField(blank=True, null=True)
-    role = models.CharField(max_length=30, choices = ( ('Volunteer','Volunteer'), ('Coordinator','Coordinator'), ('Assistant Coordinator','Assistant Coordinator') ) ,null = True,blank=True)
+    role = models.CharField(max_length=30, choices = ( ('Volunteer','Volunteer'), ('Coordinator','Coordinator'), ('Assistant Coordinator','Assistant Coordinator'), ('Faculty','Faculty')  ) ,null = True,blank=True)
     team = models.CharField(max_length=30, choices = ( ('Technical Team','Technical Team'), ('Documentation Team','Documentation Team'), ('Design Team','Design Team'), ('Sponsorship Team','Sponsorship Team')  ) ,null = True,blank=True)
     pending_status = models.BooleanField(default=True)
 

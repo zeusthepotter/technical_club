@@ -15,7 +15,11 @@
 	    <form method="post" action="" enctype='multipart/form-data'>
         {% csrf_token %}
        <div class="row" >
- 	<div class="col" style="background:white;color:black;padding-left:100px;">
+     <div class="col" style="background:white;color:black;padding-left:100px;">
+        <span style='color:red'><strong>
+        {{ form.errors }}
+    </strong>
+    </span>
     <p>Name</p>
             {{ form.name }}
   		 <br><br>
