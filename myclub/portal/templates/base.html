@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Technical Club RECK</title>
-
+    {{ form.media.css }}
     <!-- Bootstrap core CSS-->
     
     <link href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
@@ -159,7 +159,8 @@
             <a class="dropdown-item" href="/portal/projects">All Projects </span></a>
             <a class="dropdown-item"  href="/portal/my_projects">My Projects</a>
             <a class="dropdown-item" href="/portal/create_project">Add Project</a>
-            
+            <!--<a class="dropdown-item" href="/portal/update_project">Update Project</a>-->
+
           </div>
         </li>
 
@@ -244,7 +245,7 @@
 
     <!-- Core plugin JavaScript-->
     <script src="{% static "vendor/jquery-easing/jquery.easing.min.js" %}"></script>
-
+    {{ form.media.js }}
     <!-- Custom scripts for all pages-->
     <script src="{% static "js/sb-admin.min.js" %}"></script>
 

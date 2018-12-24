@@ -1,6 +1,8 @@
 from django import forms
+from django.forms import ModelForm
 from django.contrib.auth.models import User
 from .models import Post, Member, Project, Announcement
+from django_select2.forms import Select2MultipleWidget
 
 class PostForm(forms.ModelForm):
 
@@ -30,16 +32,22 @@ class AnnouncementForm(forms.ModelForm):
 
 
 class ProjectForm(forms.ModelForm):
-   
     class Meta:
         model = Project
+
         fields = ('title', 'description','worker','deadline','finished')
-
-        labels = {
-            'worker': 'Members'
+        widgets = {
+            'worker': Select2MultipleWidget
         }
-        
 
+
+class ProjectUpdateForm(ModelForm):
+    class Meta:
+        model = Project
+        fields = ('deadline','worker','finished')
+        widgets = {
+            'worker': Select2MultipleWidget
+        }
 
 class UserForm(forms.ModelForm):
     password=forms.CharField(widget=forms.PasswordInput())
