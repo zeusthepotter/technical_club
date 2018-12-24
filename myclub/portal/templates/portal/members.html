@@ -17,10 +17,104 @@ Your account has not been authenticated yet!
 
 <span style="font-size: 30px ">Club Members<br></span>
 <br>
+
+<span style="font-size: 20px;">Technical Team</span><br><br>
+
 <table>
         
 
-{% for m in members %}
+{% for m in technical_team %}
+    <tr>
+        <td id="mobile" style="color:black;">{{ forloop.counter }}.</td>
+
+        
+        
+        
+        <td>
+        
+            <a href="/portal/profile/{{ m.roll }}/">
+            <img class="rounded-circle " alt="Responsive image"  style="height:100px;width:130px;" src="{{ m.image_url }}" >
+            </a>
+         
+        </td>
+        <td>
+            
+                <a style="color:black;" href="/portal/profile/{{ m.roll }}/"> {{ m.name }} </a>
+        </td>
+        <td id="mobile" style="color:black;">{{ m.role }}</td>
+        <td id="mobile" style="color:black;">{{ m.team }}</td>
+
+    </tr>
+{% endfor %}
+</table>    
+
+<br>
+
+<span style="font-size: 20px;">Documentation Team</span><br><br>
+<table>
+        
+
+{% for m in documentation_team %}
+    <tr>
+        <td id="mobile" style="color:black;">{{ forloop.counter }}.</td>
+
+        
+        
+        
+        <td>
+        
+            <a href="/portal/profile/{{ m.roll }}/">
+            <img class="rounded-circle " alt="Responsive image"  style="height:100px;width:130px;" src="{{ m.image_url }}" >
+            </a>
+         
+        </td>
+        <td>
+            
+                <a style="color:black;" href="/portal/profile/{{ m.roll }}/"> {{ m.name }} </a>
+        </td>
+        <td id="mobile" style="color:black;">{{ m.role }}</td>
+        <td id="mobile" style="color:black;">{{ m.team }}</td>
+
+    </tr>
+{% endfor %}
+</table>    
+
+<br>
+<span style="font-size: 20px;">Design Team</span><br><br>
+<table>
+        
+
+{% for m in design_team %}
+    <tr>
+        <td id="mobile" style="color:black;">{{ forloop.counter }}.</td>
+
+        
+        
+        
+        <td>
+        
+            <a href="/portal/profile/{{ m.roll }}/">
+            <img class="rounded-circle " alt="Responsive image"  style="height:100px;width:130px;" src="{{ m.image_url }}" >
+            </a>
+         
+        </td>
+        <td>
+            
+                <a style="color:black;" href="/portal/profile/{{ m.roll }}/"> {{ m.name }} </a>
+        </td>
+        <td id="mobile" style="color:black;">{{ m.role }}</td>
+        <td id="mobile" style="color:black;">{{ m.team }}</td>
+
+    </tr>
+{% endfor %}
+</table>    
+
+<br>
+<span style="font-size: 20px;">Sponsorship Team</span><br><br>
+<table>
+        
+
+{% for m in sponsorship_team %}
     <tr>
         <td id="mobile" style="color:black;">{{ forloop.counter }}.</td>
 

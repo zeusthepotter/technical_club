@@ -163,8 +163,11 @@ def view_my_posts(request):
 
 @login_required
 def view_members(request):
-    members = Member.objects.filter(pending_status=False)
-    return render(request, 'portal/members.html', {'user':request.user ,'members':members })
+    technical_team = Member.objects.filter(pending_status=False,team='Technical Team')
+    documentation_team = Member.objects.filter(pending_status=False,team='Documentation Team')
+    design_team = Member.objects.filter(pending_status=False,team='Design Team')
+    sponsorship_team = Member.objects.filter(pending_status=False,team='Sponsorship Team')
+    return render(request, 'portal/members.html', {'user':request.user ,'technical_team':technical_team, 'documentation_team':documentation_team,'design_team':design_team,'sponsorship_team':sponsorship_team  })
 
 @login_required
 def view_activity(request):
