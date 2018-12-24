@@ -28,7 +28,7 @@ Your account has not been authenticated yet!
   <tbody style="background:#F7F9F9;color:black;">
  
   <tr>
-      <td scope="row"><a href="/portal/project/{{ p.pk }}/">  {{ p.title }}  </a></td>
+      <td scope="row"><a href="/portal/update_project/{{ p.pk }}/">  {{ p.title }}  </a></td>
       <td scope="row">{{ p.description }}</td>
       <td scope="row">{{ p.deadline }}</td>
       <td scope="row">{% for x in p.worker.all %}<a href="/portal/profile/{{ x.member.roll }}">{{ x.member.name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</td>

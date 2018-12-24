@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 
-{% block content %}<form method="post" action="">
-    {% csrf_token %}
+{% block content %}
+<div class="row">
+    <div class="col">
+        <h1>{{ details.title }}</h1>
+    </div>
 
+</div>
 <div class="row">
     <div class="col col-lg-4 col-md-4 col-sm-12 mr-auto " style="background:white;color:black;border-right:1px solid grey;">
-		<br/>Add Project
+        <br/><h3>Update Project</h3>
         <div style="background:#FBFCFC;"><hr/>
-            Project Title
-<br/>
-        <!--{{ form.title }}<br/>-->
-            <!--Description<br/>-->
-        <!--{{ form.description }}<br/>-->
+
+<form method="post" action="">
+    {% csrf_token %}
             Members<br/>
-        {{ form.worker }}<br/>
+        {{form.worker}}<br/>
             Deadline ( yyyy-mm-dd )  <br/>
         {{ form.deadline }}<br/>
          Project complete?<br/>
@@ -21,12 +23,29 @@
         <hr/></div>
 
 <br/>
-    <input class="btn btn-primary btn-block" style="width:170px;" type="submit" value="Create new project" /><br/><br/>
+    <input class="btn btn-primary btn-block" style="width:170px;" type="submit" value="Update" /><br/><br/>
+    </form>
+
     </div>
+    <div class="col col-lg-7 col-md-7 col-sm-11 mr-auto " style="margin-left:1px;background:white;color:black;">
+        <br/><div class="row"><h3>Project Details</h3></div>
+        <div class="row">
+        Project Title:{{ details.title }}<br/>
+            Description: {{ details.description|truncatewords:12 }}<br/>
+            Members:
+        {{details.worker}}<br/>
+            Deadline ( yyyy-mm-dd ):
+        {{ details.deadline }}<br/>
+         Project complete?:
+        {{ details.finished }}<br/>
+        <hr/>
+        </div>
+
+    </div>
+
 </div>
  </center>
 
-</form>
 
 <!--<form method="post" action="">-->
     <!--{% csrf_token %}-->

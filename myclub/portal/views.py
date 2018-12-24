@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 from django.contrib.auth.models import User
-from .forms import PostForm, UserForm, ProjectForm, AnnouncementForm
+from .forms import PostForm, UserForm, ProjectForm, AnnouncementForm, ProjectUpdateForm
 from django.shortcuts import redirect, get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
@@ -10,6 +10,10 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from django.core.mail import send_mass_mail, send_mail
 from django.views.generic.edit import UpdateView
+from django.contrib.auth.decorators import user_passes_test
+from django.utils.decorators import method_decorator
+from django.urls import reverse
+
 
 
 
@@ -95,30 +99,31 @@ def create_project(request):
             if form.is_valid():
                 project = form.save()
                 
-                return redirect('profile')
+                return HttpResponseRedirect("/portal/projects")
     else:
         form = ProjectForm()
         
     return render(request, 'portal/create_project.html', context = {'member': request.user.member, 'form':form } )
 
 
-# @login_required
-# def update_project(request):
-#     if request.method == "POST":
-#         form = ProjectForm(request.POST)
-#         if form.is_valid():
-#             project = form.save()
-#
-#             return redirect('view-project')
-#     else:
-#         form = ProjectForm()
-#
-#     return render(request, 'portal/update_project.html', context={'member': request.user.member, 'form': form})
-# class updateProject(UpdateView):
-#     model = Project
-#     fields = ['worker','deadline','finished']
-#     template_name = 'portal/update_project.html'
 
+class updateProject(UpdateView):
+    @method_decorator(user_passes_test(lambda u: u.is_authenticated))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    model = Project
+    form_class = ProjectUpdateForm
+    template_name = 'portal/update_project.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['details'] = self.model.objects.get(id=self.object.id)
+        return context
+
+    def form_invalid(self,form):
+        return HttpResponseRedirect("/portal/projects")
+    success_url='/portal/projects'
 
 @login_required
 def view_profile(request,pk):
